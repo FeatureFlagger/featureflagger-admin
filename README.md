@@ -1,5 +1,7 @@
 # featureflagger-admin
 
+[![Build Status](https://travis-ci.org/FeatureFlagger/featureflagger-admin.svg?branch=master)](https://travis-ci.org/FeatureFlagger/featureflagger-admin)
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
