@@ -1,18 +1,22 @@
 {
-  "name": "featureflagger-admin",
+  "name": "FeatureFlagger-Admin",
   "version": "0.0.0",
-  "description": "Small description for featureflagger-admin goes here",
+  "description": "Ember.js admin client for FeatureFlagger",
   "license": "MIT",
-  "author": "",
+  "author": "Aurelio Saraiva",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/FeatureFlagger/featureflagger-admin",
+  "engines": {
+    "node": ">= 4"
+  },
+  "private": true,
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember test",
+    "lint": "ember test --launch phantomjs -f 'ESLint'",
     "coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
@@ -40,9 +44,5 @@
     "ember-source": "~2.12.0",
     "ember-welcome-page": "^2.0.2",
     "loader.js": "^4.2.3"
-  },
-  "engines": {
-    "node": ">= 4"
-  },
-  "private": true
+  }
 }
