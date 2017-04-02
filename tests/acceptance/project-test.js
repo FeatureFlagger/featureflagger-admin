@@ -1,4 +1,3 @@
-/* jshint expr:true */
 import {
     describe,
     it,
@@ -31,6 +30,7 @@ describe('Acceptance: Project', function () {
     });
 
     it('list project', function () {
+        server.createList('project', 3);
         visit('/project');
 
         andThen(function () {
