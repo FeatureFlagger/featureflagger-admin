@@ -1,9 +1,9 @@
 <h1>Projects</h1>
 {{outlet}}
 
-<ul>
+<ul data-test-project-actives>
   {{#each model as |item|}}
-    <li>
+    <li data-test-project-item="item.name">
       <a class="blue red-hover" href="#">{{item.name}}</a>
     </li>
   {{/each}}
