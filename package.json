@@ -1,5 +1,5 @@
 {
-  "name": "FeatureFlagger-Admin",
+  "name": "featureflagger-admin",
   "version": "0.0.0",
   "description": "Ember.js admin client for FeatureFlagger",
   "license": "MIT",
@@ -43,6 +43,9 @@
     "ember-resolver": "^2.0.3",
     "ember-source": "~2.12.0",
     "ember-welcome-page": "^2.0.2",
-    "loader.js": "^4.2.3"
+    "loader.js": "^4.2.3",
+    "grunt": "1.0.1",
+    "grunt-shell": "2.1.0",
+    "matchdep": "1.0.1"
   }
 }
