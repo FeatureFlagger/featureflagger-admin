@@ -1,5 +1,7 @@
 # featureflagger-admin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/FeatureFlagger/featureflagger-admin.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/FeatureFlagger/featureflagger-admin.svg?branch=master)](https://travis-ci.org/FeatureFlagger/featureflagger-admin)
 [![Coverage Status](https://coveralls.io/repos/github/FeatureFlagger/featureflagger-admin/badge.svg?branch=master)](https://coveralls.io/github/FeatureFlagger/featureflagger-admin?branch=master)
 
