@@ -49,6 +49,7 @@
     "matchdep": "1.0.1",
     "postcss-color-function": "^3.0.0",
     "postcss-custom-properties": "^5.0.2",
-    "postcss-easy-import": "^2.0.0"
+    "postcss-easy-import": "^2.0.0",
+    "ember-cli-static-api": "git+https://github.com/EmberJSBrasil/ember-cli-static-api.git"
   }
 }
