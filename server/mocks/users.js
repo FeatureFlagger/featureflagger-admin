@@ -1,17 +1,17 @@
 module.exports = function(app) {
   var express = require('express');
-  var accountsRouter = express.Router();
+  var router = express.Router();
 
-  accountsRouter.get('/1', function(req, res) {
+  function routerMe(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     if (/Bearer .+/.test(req.headers.authorization)) {
       var response = {
         data: {
-          type: 'accounts',
+          type: 'users',
           id: '1',
           attributes: {
-            login: 'letme',
-            name: 'Some person'
+            email: 'dev@example.com',
+            name: 'Dev'
           }
         }
       };
@@ -23,7 +23,10 @@ module.exports = function(app) {
     } else {
       res.status(401).end();
     }
-  });
+  }
 
-  app.use('/accounts', accountsRouter);
+  router.get('/users/1', routerMe);
+  router.get('/users/me', routerMe);
+
+  app.use('/api-stub', router);
 };

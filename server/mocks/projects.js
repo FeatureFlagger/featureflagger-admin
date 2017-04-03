@@ -4,6 +4,7 @@ module.exports = function(app) {
 
   accountsRouter.get('/projects', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    if (/Bearer .+/.test(req.headers.authorization)) {
       var response = {
         data: function(){
           var arr = [];
@@ -24,6 +25,9 @@ module.exports = function(app) {
       setTimeout(function() {
         res.status(200).send(response);
       }, 1000);
+    } else {
+      res.status(401).end();
+    }
   });
 
   app.use('/api-stub', accountsRouter);

@@ -6,6 +6,7 @@ import {
 } from 'mocha';
 import { expect } from 'chai';
 import testSelector from 'ember-test-selectors';
+import { invalidateSession, authenticateSession } from '../helpers/ember-simple-auth';
 import startApp from '../helpers/start-app';
 import destroyApp from '../helpers/destroy-app';
 
@@ -20,7 +21,17 @@ describe('Acceptance: Project', () => {
     destroyApp(application);
   });
 
-  it('working', () => {
+  it('redirects to signin when not authenticated', () => {
+    invalidateSession(application);
+    visit('/project');
+
+    andThen(() => {
+      expect(currentURL()).to.equal('/login');
+    });
+  });
+
+  it('redirects to signin when authenticated', () => {
+    authenticateSession(application);
     visit('/project');
 
     andThen(() => {
@@ -30,6 +41,7 @@ describe('Acceptance: Project', () => {
 
   it('list project', () => {
     server.createList('project', 3);
+    authenticateSession(application);
     visit('/project');
 
     andThen(() => {
