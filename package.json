@@ -22,6 +22,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "broccoli-asset-rev": "^2.4.5",
+    "cors": "^2.8.3",
     "coveralls": "^2.13.0",
     "ember-ajax": "^2.4.1",
     "ember-cli": "2.12.1",
@@ -47,11 +48,11 @@
     "ember-resolver": "^4.1.0",
     "ember-source": "~2.12.0",
     "ember-test-selectors": "^0.3.0",
+    "eslint-plugin-ember-suave": "1.0.0",
     "loader.js": "^4.2.3",
     "matchdep": "1.0.1",
     "postcss-color-function": "^3.0.0",
     "postcss-custom-properties": "^5.0.2",
-    "postcss-easy-import": "^2.0.0",
-    "eslint-plugin-ember-suave": "1.0.0"
+    "postcss-easy-import": "^2.0.0"
   }
 }

@@ -1,29 +1,22 @@
-// To use it create some directories under `routes/`
-// and then add index.json files for responses
-// e.g. `routes/service/index.json`
-
-var fs = require('fs');
-var walkRoutes = require('./util/walkRoutes');
-
 module.exports = function(app) {
-  var rootdir = './server/routes';
+  var globSync = require('glob').sync;
+  var bodyParser = require('body-parser');
+  var cors = require('cors');
+  var mocks = globSync('./mocks/**/*.js', { cwd: __dirname }).map(require);
+  var proxies = globSync('./proxies/**/*.js', { cwd: __dirname }).map(require);
 
-  var routeHandler = function(filePath) {
-    return function(req, res) {
-      res.type('application/json');
-      res.send(fs.readFileSync(filePath));
-    };
-  };
+  app.use(bodyParser.json({ type: 'application/*+json' }));
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
 
-  var routes = walkRoutes(rootdir, /\.json$/);
+  // Log proxy requests
+  var morgan = require('morgan');
+  app.use(morgan('dev'));
 
-  var start = './server/routes'.length;
-  var cutoff = '/index.json'.length;
+  // enable *all* CORS requests
+  app.use(cors());
 
-  for (var i = 0; i < routes.length; i++) {
-    var filePath = routes[i];
-    var last = filePath.length - cutoff - start;
-    var route = filePath.substr(start, last);
-    app.get(route, routeHandler(filePath));
-  }
+  mocks.forEach(function(route) { route(app); });
+  proxies.forEach(function(route) { route(app); });
 };
