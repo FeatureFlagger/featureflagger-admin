@@ -1,5 +1,5 @@
 module.exports = {
   rules: {
-    'brace-style': 'off'
+    'brace-style': 0
   }
 };

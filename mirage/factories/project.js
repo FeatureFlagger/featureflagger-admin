@@ -1,5 +1,5 @@
-import {Factory} from 'ember-cli-mirage';
+import { Factory } from 'ember-cli-mirage';
 
 export default Factory.extend({
-    name(i) { return `Project ${i}`; },
+  name(i) { return `Project ${i}`; }
 });

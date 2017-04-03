@@ -1,4 +1,3 @@
-/* eslint-env node */
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const environment = EmberApp.env();
 const isProduction = environment === 'production';

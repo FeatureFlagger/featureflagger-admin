@@ -1,13 +1,15 @@
-import Ember from 'ember';
+import Router from 'ember-router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
+const FeatureFlaggerRouter = Router.extend({
   location: config.locationType,
   rootURL: config.rootURL
 });
 
-Router.map(function() {
+FeatureFlaggerRouter.map(function() {
   this.route('project');
+
+  return null;
 });
 
-export default Router;
+export default FeatureFlaggerRouter;
