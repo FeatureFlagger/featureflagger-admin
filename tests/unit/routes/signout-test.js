@@ -5,7 +5,9 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Route | signout', function() {
   setupTest('route:signout', {
     // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: [
+      'service:session'
+    ]
   });
 
   it('exists', function() {

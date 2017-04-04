@@ -16,6 +16,7 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember test",
+    "test-cov": "COVERAGE=true ember test",
     "lint": "ember test --launch phantomjs -f 'ESLint'",
     "coverage": "cat ./coverage/lcov.info | coveralls"
   },
