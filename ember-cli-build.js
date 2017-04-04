@@ -38,6 +38,11 @@ module.exports = function(defaults) {
             plugins: postcssPlugins()
         }
     },
+    nodeAssets: {
+        'jquery-deparam': {
+            import: ['jquery-deparam.js']
+        },
+    },
   });
 
   app.import('bower_components/validator-js/validator.js');

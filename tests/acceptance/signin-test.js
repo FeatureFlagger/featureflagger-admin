@@ -24,12 +24,11 @@ describe('Acceptance: Signin', function() {
   });
 
   it('redirects if already authenticated', function() {
-    let role = server.create('role', { name: 'Author' });
-    server.create('user', { roles: [role], slug: 'test-user' });
+    server.create('user');
 
     authenticateSession(application);
 
-    visit('/signin');
+    visit('/login');
     andThen(() => {
       expect(currentURL(), 'current url').to.equal('/');
     });
@@ -37,21 +36,18 @@ describe('Acceptance: Signin', function() {
 
   describe('when attempting to signin', function() {
     beforeEach(function() {
-      let role = server.create('role', { name: 'Administrator' });
-      server.create('user', { roles: [role], slug: 'test-user' });
+      server.create('user');
 
-      server.post('/authentication/token', function(schema, { requestBody }) {
+      server.post('/token', function(schema, { requestBody }) {
         /* eslint-disable camelcase */
         let {
             grant_type: grantType,
             username,
-            password,
-            client_id: clientId
+            password
         } = $.deparam(requestBody);
 
         expect(grantType, 'grant type').to.equal('password');
         expect(username, 'username').to.equal('test@example.com');
-        expect(clientId, 'client id').to.equal('ghost-admin');
 
         if (password === 'testpass') {
           return {
@@ -75,10 +71,10 @@ describe('Acceptance: Signin', function() {
     it('errors correctly', function() {
       invalidateSession(application);
 
-      visit('/signin');
+      visit('/login');
 
       andThen(() => {
-        expect(currentURL(), 'signin url').to.equal('/signin');
+        expect(currentURL(), 'signin url').to.equal('/login');
 
         expect(find('input[name="identification"]').length, 'email input field')
             .to.equal(1);
@@ -101,7 +97,7 @@ describe('Acceptance: Signin', function() {
       click('.ffg-btn-blue');
 
       andThen(() => {
-        expect(currentURL(), 'current url').to.equal('/signin');
+        expect(currentURL(), 'current url').to.equal('/login');
 
         expect(find('.main-error').length, 'main error is displayed')
             .to.equal(1);
@@ -114,10 +110,10 @@ describe('Acceptance: Signin', function() {
     it('submits successfully', function() {
       invalidateSession(application);
 
-      visit('/signin');
+      visit('/login');
 
       andThen(() => {
-        expect(currentURL(), 'current url').to.equal('/signin');
+        expect(currentURL(), 'current url').to.equal('/login');
       });
 
       fillIn('[name="identification"]', 'test@example.com');

@@ -1,5 +1,6 @@
 import mockProjects from './config/projects';
 import mockUsers from './config/users';
+import mockAuthentication from './config/authentication';
 import ENV from '../config/environment';
 
 export default function() {
@@ -9,4 +10,5 @@ export default function() {
   this.logging = true;
   mockProjects(this);
   mockUsers(this);
+  mockAuthentication(this);
 }
