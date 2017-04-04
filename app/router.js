@@ -10,6 +10,7 @@ FeatureFlaggerRouter.map(function() {
   this.route('project');
   this.route('signin');
 
+  this.route('dashboard', { path: '/' }, function() {});
   return null;
 });
 
