@@ -1,6 +1,7 @@
 {
   "name": "featureflagger-admin",
   "dependencies": {
-    "normalize.css": "3.0.3"
+    "normalize.css": "3.0.3",
+    "validator-js": "3.39.0"
   }
 }

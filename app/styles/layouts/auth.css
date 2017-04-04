@@ -1,0 +1,22 @@
+/* Sign in
+/* ---------------------------------------------------------- */
+
+.ffg-signin {
+    position: relative;
+    margin: 30px auto;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    border: #dae1e3 1px solid;
+    background: #f8fbfd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.ffg-signin .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.ffg-signin .ffg-btn {
+    margin: 0;
+}

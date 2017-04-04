@@ -1,0 +1,421 @@
+/* Buttons
+/* ---------------------------------------------------------- */
+
+/* Base button style */
+/* Should only be applied to <a> tags */
+.ffg-btn {
+    display: inline-block;
+    outline: none;
+    border: 1px solid color(var(--lightgrey) l(-5%) s(-10%));
+    color: color(var(--lightgrey) l(-27%) blackness(+15%));
+    text-shadow: 0 1px 0 #fff;
+    text-decoration: none !important;
+    user-select: none;
+    fill: color(var(--lightgrey) l(-27%) blackness(+15%));
+    border-radius: 5px;
+    transition: all 0.2s ease;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* ALL buttons must have a span for content */
+.ffg-btn span {
+    display: block;
+    padding: 0 12px;
+    height: 33px;
+    font-size: 1.3rem;
+    line-height: 33px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.2px;
+    border-radius: 4px;
+}
+
+.ffg-btn:hover {
+    border-color: color(var(--lightgrey) l(-15%) s(-10%));
+}
+
+/* When disabled */
+.ffg-btn.disabled,
+.ffg-btn[disabled],
+fieldset[disabled] .ffg-btn {
+    box-shadow: none;
+    opacity: 0.8;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* TODO: replace with svg icons */
+.ffg-btn i {
+    display: inline-block;
+}
+
+/* Button highlights
+/* ---------------------------------------------------------- */
+
+.ffg-btn-hover-blue:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.ffg-btn-hover-green:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.ffg-btn-hover-red:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+
+/* Grey button - First so that other colors will override
+/* ---------------------------------------------------------- */
+
+/* The background of the button creates 1px gradient border */
+.ffg-btn-grey {
+    padding: 1px;
+    border: 0;
+    color: color(var(--darkgrey) l(+15%));
+    text-shadow: 0 1px 0 #fff;
+    fill: var(--darkgrey);
+    background: linear-gradient(
+    color(var(--lightgrey) l(-3%)),
+    color(var(--lightgrey) l(-8%))
+    );
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+    transition: none !important;
+}
+
+/* The background of the span is the main visual element */
+.ffg-btn-grey span {
+    background: linear-gradient(
+    color(var(--lightgrey) l(+10%)),
+    color(var(--lightgrey) l(+4%))
+    );
+    box-shadow: 0 1px 0 #fff inset;
+}
+
+/* When clicked or focused with keyboard */
+.ffg-btn-grey:active,
+.ffg-btn-grey:focus {
+    background: color(var(--midgrey) l(+25%));
+}
+.ffg-btn-grey:active span,
+.ffg-btn-grey:focus span {
+    background: color(var(--lightgrey) l(+15%));
+    box-shadow: none;
+}
+
+
+/* Blue button
+/* ---------------------------------------------------------- */
+
+/* The background of the button creates 1px gradient border */
+.ffg-btn-blue {
+    padding: 1px;
+    border: 0;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+    fill: #fff;
+    background: linear-gradient(
+    color(var(--blue) blackness(+10%)),
+    color(var(--blue) l(-15%) saturation(-15%))
+    );
+    box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+    transition: none !important;
+}
+
+/* The background of the span is the main visual element */
+.ffg-btn-blue span {
+    background: linear-gradient(
+    color(var(--blue) whiteness(+5%)),
+    color(var(--blue) l(-5%) saturation(-8%)) 60%,
+    color(var(--blue) l(-5%) saturation(-8%)) 90%,
+    color(var(--blue) l(-3%) saturation(-8%))
+    );
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+}
+
+/* When clicked or focused with keyboard */
+.ffg-btn-blue:active,
+.ffg-btn-blue:focus {
+    background: color(var(--blue) l(-20%) saturation(-15%));
+}
+.ffg-btn-blue:active span,
+.ffg-btn-blue:focus span {
+    background: color(var(--blue) l(-7%) saturation(-10%));
+    box-shadow: none;
+}
+
+/* Green button
+/* ---------------------------------------------------------- */
+
+/* The background of the button creates 1px gradient border */
+.ffg-btn-green {
+    padding: 1px;
+    border: 0;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+    fill: #fff;
+    background: linear-gradient(
+    color(var(--green) blackness(+5%)),
+    color(var(--green) l(-9%) saturation(-9%))
+    );
+    box-shadow: 0 1px 1px rgba(0,0,0,0.14);
+    transition: none !important;
+}
+
+/* The background of the span is the main visual element */
+.ffg-btn-green span {
+    background: linear-gradient(
+    color(var(--green) whiteness(+4%)),
+    color(var(--green) l(-3%) saturation(-7%)) 60%,
+    color(var(--green) l(-3%) saturation(-7%)) 90%,
+    color(var(--green) l(-3%) saturation(-9%))
+    );
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+}
+
+/* When clicked or focused with keyboard */
+.ffg-btn-green:active,
+.ffg-btn-green:focus {
+    background: color(var(--green) l(-9%) saturation(-9%));
+}
+.ffg-btn-green:active span,
+.ffg-btn-green:focus span {
+    background: color(var(--green) l(-3%) saturation(-7%));
+    box-shadow: none;
+}
+
+
+/* Red button
+/* ---------------------------------------------------------- */
+
+/* The background of the button creates 1px gradient border */
+.ffg-btn-red {
+    padding: 1px;
+    border: 0;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+    fill: #fff;
+    background: linear-gradient(
+    color(var(--red) blackness(+10%)),
+    color(var(--red) l(-15%) saturation(-15%))
+    );
+    box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+    transition: none !important;
+}
+
+/* The background of the span is the main visual element */
+.ffg-btn-red span {
+    background: linear-gradient(
+    color(var(--red) whiteness(+7%)),
+    color(var(--red) l(-7%) saturation(-10%)) 60%,
+    color(var(--red) l(-7%) saturation(-10%)) 90%,
+    color(var(--red) l(-4%) saturation(-10%))
+    );
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+}
+
+/* When clicked or focused with keyboard */
+.ffg-btn-red:active,
+.ffg-btn-red:focus {
+    background: color(var(--red) l(-20%) saturation(-15%));
+}
+.ffg-btn-red:active span,
+.ffg-btn-red:focus span {
+    background: color(var(--red) l(-7%) saturation(-10%));
+    box-shadow: none;
+}
+
+/* Black button
+/* ---------------------------------------------------------- */
+
+/* The background of the button creates 1px gradient border */
+.ffg-btn-black {
+    padding: 1px;
+    border: 0;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+    fill: #fff;
+    background: linear-gradient(
+    color(var(--darkgrey) blackness(+10%)),
+    color(var(--darkgrey) l(-15%) saturation(-15%))
+    );
+    box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+    transition: none !important;
+}
+
+/* The background of the span is the main visual element */
+.ffg-btn-black span {
+    background: linear-gradient(
+    color(var(--darkgrey) whiteness(+7%)),
+    color(var(--darkgrey) l(-7%) saturation(-10%)) 60%,
+    color(var(--darkgrey) l(-7%) saturation(-10%)) 90%,
+    color(var(--darkgrey) l(-4%) saturation(-10%))
+    );
+    box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset;
+}
+
+/* When clicked or focused with keyboard */
+.ffg-btn-black:active,
+.ffg-btn-black:focus {
+    background: color(var(--darkgrey) l(-20%) saturation(-15%));
+}
+.ffg-btn-black:active span,
+.ffg-btn-black:focus span {
+    background: color(var(--darkgrey) l(-7%) saturation(-10%));
+    box-shadow: none;
+}
+
+
+/* Special Buttons
+/* ---------------------------------------------------------- */
+
+.ffg-btn-white {
+    background: #fff;
+}
+.ffg-btn-white span {
+    height: 38px;
+}
+
+.ffg-btn-block {
+    display: block;
+    width: 100%;
+}
+
+.ffg-btn-icon span {
+    display: flex;
+    align-items: center;
+}
+.ffg-btn-icon svg {
+    margin-right: 10px;
+    height: 15px;
+}
+
+
+/*
+/* Loading Button Spinner
+/* ---------------------------------------------------------- */
+/*
+
+Usage: Swap out button>span text with HTML
+
+<a class="ffg-btn ffg-btn-blue">
+    <span>
+        <div class="ffg-spinner"></div>
+    </span>
+</div>
+
+*/
+
+.ffg-spinner {
+    position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: rgba(0,0,0,0.2) solid 4px;
+    border-radius: 100%;
+    animation: spin 1s linear infinite;
+}
+
+.ffg-spinner:before {
+    content: "";
+    display: block;
+    margin-top: 9px;
+    width: 4px;
+    height: 4px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 100%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*
+/* Button Variations
+/* ---------------------------------------------------------- */
+
+.ffg-btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Vertically space out multiple block buttons */
+.ffg-btn-block + .ffg-btn-block {
+    margin-top: 5px;
+}
+
+/* Specificity overrides */
+input[type="submit"].ffg-btn-block,
+input[type="reset"].ffg-btn-block,
+input[type="button"].ffg-btn-block {
+    width: 100%;
+}
+
+
+/*
+/* Button Groups
+/* ---------------------------------------------------------- */
+/*
+
+Usage: CTA buttons grouped together horizontally.
+
+<div class="ffg-btn-group">
+    <a class="ffg-btn ffg-btn-green" href="#"><span>Button 1</span></a>
+    <a class="ffg-btn ffg-btn-white" href="#"><span>Button 2</span></a>
+</div>
+
+*/
+
+.ffg-btn-group .ffg-btn {
+    margin-left: 15px;
+}
+
+.ffg-btn-group .ffg-btn:first-of-type {
+    margin-left: 0;
+}
+
+.ffg-btn-block + .ffg-btn-block {
+    margin-top: 5px;
+}
+
+.ffg-btn-link {
+    border: 0;
+}
+
+
+/* Spin Buttons!
+/* ---------------------------------------------------------- */
+.spinner {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: -2px 0;
+    width: 14px;
+    height: 14px;
+    border: rgba(0,0,0,0.2) solid 4px;
+    border-radius: 100px;
+    animation: spin 1s linear infinite;
+}
+
+.spinner:before {
+    content: "";
+    display: block;
+    margin-top: 6px;
+    width: 4px;
+    height: 4px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 100px;
+}

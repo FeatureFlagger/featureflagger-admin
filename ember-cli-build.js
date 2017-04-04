@@ -40,5 +40,7 @@ module.exports = function(defaults) {
     },
   });
 
+  app.import('bower_components/validator-js/validator.js');
+
   return app.toTree();
 };

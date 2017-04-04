@@ -13,5 +13,8 @@ module.exports = {
   },
   rules: {
 
+  },
+  globals: {
+    validator: false
   }
 };

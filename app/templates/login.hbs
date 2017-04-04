@@ -1,3 +1,26 @@
-<h1>Login</h1>
+<div class="ffg-flow">
+  <div class="ffg-flow-content-wrap">
+    <section class="ffg-flow-content">
+      <header>
+        <img style="width: 150px;" class="ffg-logo" src="/assets/img/featureflagger-logo.png" alt="FeatureFlagger" />
+        <h1>FeatureFlagger</h1>
+      </header>
 
-{{ffg-login-form}}
+      <form id="login" method="post" class="ffg-signin" novalidate="novalidate" {{action "authenticate" on="submit"}}>
+          {{#ffg-form-group errors=model.errors hasValidated=hasValidated property="identification"}}
+              <span class="input-icon icon-mail">
+                  {{ffg-trim-focus-input model.identification class="email" type="email" placeholder="Email Address" name="identification" autocapitalize="off" autocorrect="off" focusOut=(action "validate" "identification") update=(action (mut model.identification))}}
+              </span>
+          {{/ffg-form-group}}
+          {{#ffg-form-group errors=model.errors hasValidated=hasValidated property="password"}}
+              <span class="input-icon icon-lock forgotten-wrap">
+                  {{ffg-input model.password class="password" type="password" placeholder="Password" name="password" autocorrect="off" update=(action (mut model.password))}}
+              </span>
+          {{/ffg-form-group}}
+          {{ffg-task-button "Sign in" task=validateAndAuthenticate class="login ffg-btn ffg-btn-blue ffg-btn-block" type="submit"}}
+      </form>
+
+      <p class="main-error">{{{flowErrors}}}</p>
+    </section>
+  </div>
+</div>

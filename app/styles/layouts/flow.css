@@ -1,0 +1,105 @@
+/* Full screen workflow
+/* ---------------------------------------------------------- */
+
+.ffg-flow {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 100%;
+}
+
+
+.ffg-flow-content-wrap {
+    flex-grow: 1;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5%;
+    padding-bottom: 8vh;
+}
+
+
+.ffg-flow-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    width: 100%;
+    color: var(--midgrey);
+    text-align: center;
+    font-size: 1.9rem;
+    line-height: 1.5em;
+    font-weight: 100;
+}
+
+.ffg-flow-content header {
+    margin: 0 auto;
+    max-width: 520px;
+}
+
+.ffg-flow-content h1 {
+    font-size: 4.2rem;
+    font-weight: 100;
+}
+
+
+.ffg-flow-content strong {
+    font-weight: 400;
+}
+
+.ffg-flow-content em {
+    color: var(--blue);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ffg-flow-content .ffg-btn {
+    display: block;
+    margin: 20px auto 0;
+    max-width: 400px;
+}
+
+.ffg-flow-content .form-group {
+    margin-bottom: 2.5rem;
+}
+
+.ffg-flow-content input {
+    padding: 10px;
+    border: #dae1e3 1px solid;
+    font-size: 1.6rem;
+    line-height: 1.4em;
+    font-weight: 100;
+}
+
+.ffg-flow-content .input-icon[class*="icon-"]:before {
+    transform: translateY(-49%);
+}
+
+.ffg-flow-content .success .input-icon:before {
+    color: var(--green);
+}
+
+.error,
+.error-content,
+.main-error {
+    user-select: text;
+}
+
+.ffg-flow-content .error input {
+    border-color: var(--red);
+}
+
+.ffg-flow-content .error .input-icon:before {
+    color: var(--red);
+}
+
+.ffg-flow-content .error .response {
+    color: var(--red);
+}
+
+.ffg-flow-content .main-error {
+    margin-top: 5px;
+    color: var(--red);
+    font-size: 1.3rem;
+}
