@@ -2,12 +2,12 @@
 /* ---------------------------------------------------------- */
 
 /*
-  Ember's app container, set height so that .gh-app and .gh-viewport
+  Ember's app container, set height so that .ffg-app and .ffg-viewport
   don't need to use 100vh where bottom of screen gets covered by iOS menus
   http://nicolas-hoizey.com/2015/02/viewport-height-is-taller-than-the-visible-part-of-the-document-in-some-mobile-browsers.html
 
   TODO: Once we have routable components it should be possible to remove this
-  by moving the gh-app component functionality into the application component
+  by moving the ffg-app component functionality into the application component
   which would remove the extra div that this targets.
 */
 body > .ember-view:not(.default-liquid-destination) {
@@ -30,7 +30,7 @@ body > .ember-view:not(.default-liquid-destination) {
     max-height: 100%;
 }
 
-.gh-main {
+.ffg-main {
     position: relative;
     flex-grow: 1;
     display: flex;
@@ -39,7 +39,7 @@ body > .ember-view:not(.default-liquid-destination) {
 }
 
 /*  Flexbox fix. https://github.com/TryGhost/Ghost/issues/5804#issuecomment-141416812 */
-.gh-main > section {
+.ffg-main > section {
     width: 1px;
     position: relative; /* for the editor in safari */
 }
@@ -48,20 +48,20 @@ body > .ember-view:not(.default-liquid-destination) {
 /* Container for App View
 /* ---------------------------------------------------------- */
 
-.gh-view {
+.ffg-view {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.gh-canvas {
+.ffg-canvas {
     flex-grow: 1;
     padding: 2.9vw 4vw 3vw 4vw;
     margin: 0 auto;
     max-width: 1200px;
 }
 
-.gh-canvas-header {
+.ffg-canvas-header {
     flex-shrink: 0;
     display: flex;
     justify-content: space-between;
@@ -69,7 +69,7 @@ body > .ember-view:not(.default-liquid-destination) {
     margin: 0 0 2vw 0;
 }
 
-.gh-canvas-title {
+.ffg-canvas-title {
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -126,7 +126,7 @@ body > .ember-view:not(.default-liquid-destination) {
     align-items: center;
 }
 
-.view-actions .gh-btn {
+.view-actions .ffg-btn {
     margin-left: 8px;
 }
 
@@ -146,15 +146,66 @@ body > .ember-view:not(.default-liquid-destination) {
     user-select: text;
 }
 
-@media (max-width: 400px) {
-    .view-header {
-        padding: 0 7px;
-        height: 50px;
-    }
-    .view-title {
-        font-size: 1.8rem;
-    }
-    .view-content {
-        padding: 15px;
-    }
+/* Global Nav
+/* ---------------------------------------------------------- */
+
+.ffg-nav {
+    position: relative;
+    z-index: 800;
+    flex: 0 0 205px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* TODO: This is a bullshit Firefox hack */
+    background: color(var(--lightgrey) l(+4%));
+    transform: translateX(0);
+}
+
+.ffg-nav-menu {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.ffg-nav-menu i {
+    margin-right: 8px;
+    width: 11px;
+    height: 11px;
+    font-size: 11px;
+    line-height: 11px;
+    transition: margin-top 0.2s ease;
+}
+
+.ffg-nav-menu-icon {
+    flex-shrink: 0;
+    margin-right: 10px;
+    width: 34px;
+    height: 34px;
+    background-size: 34px;
+    border-radius: 4px;
+}
+
+.ffg-nav-menu-details {
+    flex-grow: 1;
+    padding-right: 10px;
+    min-width: 0; /* TODO: This is a bullshit Firefox hack */
+}
+
+.ffg-nav-menu-details-blog {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    line-height: 1.3em;
+    font-weight: 600;
+}
+
+.ffg-nav-menu-details-user {
+    overflow: hidden;
+    color: var(--midgrey);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    line-height: 1.2em;
 }

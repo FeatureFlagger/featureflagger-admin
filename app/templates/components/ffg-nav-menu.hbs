@@ -1,0 +1,15 @@
+{{#ffg-dropdown-button tagName="header" class="ffg-nav-menu" dropdownName="user-menu"}}
+    <div class="ffg-nav-menu-icon" style="background-image: url(assets/img/featureflagger-logo.png)"></div>
+    <div class="ffg-nav-menu-details">
+        <div class="ffg-nav-menu-details-blog">FeatureFalgger</div>
+        <div class="ffg-nav-menu-details-user">{{session.user.name}}</div>
+    </div>
+    <i class="icon-arrow"></i>
+{{/ffg-dropdown-button}}
+{{#ffg-dropdown tagName="div" name="user-menu" closeOnClick="true"}}
+    <ul class="dropdown-menu dropdown-triangle-top js-user-menu-dropdown-menu" role="menu" style="right:-20px;left:auto;">
+        <li role="presentation"><a href="/" target="_blank">View site</a></li>
+        <li class="divider"></li>
+        <li role="presentation">{{#link-to "signin" classNames="dropdown-item user-menu-signout"}}<i class="icon-signout"></i> Sign Out{{/link-to}}</li>
+    </ul>
+{{/ffg-dropdown}}

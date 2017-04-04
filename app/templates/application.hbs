@@ -1,5 +1,12 @@
 <div class="ffg-app">
     <div class="ffg-viewport">
-        {{outlet}}
+
+        {{#if showNavMenu}}
+            {{ffg-nav-menu}}
+        {{/if}}
+
+        <div class="ffg-main">
+          {{outlet}}
+        </div>
     </div>
 </div>
