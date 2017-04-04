@@ -3,5 +3,11 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 import injectService from 'ember-service/inject';
 
 export default Route.extend(ApplicationRouteMixin, {
-  session: injectService()
+  session: injectService(),
+
+  actions: {
+    invalidateSession() {
+      this.get('session').invalidate();
+    }
+  }
 });

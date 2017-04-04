@@ -1,10 +1,10 @@
 import EmberObject from 'ember-object';
 import DS from 'ember-data';
-import Unauthenticated from 'featureflagger-admin/routes/unauthenticated';
+import UnauthenticatedRoute from 'featureflagger-admin/routes/unauthenticated';
 
 const { Errors } = DS;
 
-export default Unauthenticated.extend({
+export default UnauthenticatedRoute.extend({
   model() {
     return EmberObject.create({
       identification: '',

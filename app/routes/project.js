@@ -1,6 +1,6 @@
-import Authenticated from 'featureflagger-admin/routes/authenticated';
+import AuthenticatedRoute from 'featureflagger-admin/routes/authenticated';
 
-export default Authenticated.extend({
+export default AuthenticatedRoute.extend({
   model() {
     return this.store.findAll('project');
   }
