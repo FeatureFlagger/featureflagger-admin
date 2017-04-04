@@ -6,7 +6,7 @@
         <h1>FeatureFlagger</h1>
       </header>
 
-      <form id="login" method="post" class="ffg-signin" novalidate="novalidate" {{action "authenticate" on="submit"}}>
+      <form id="login" method="post" class="ffg-signin" novalidate="novalidate">
           {{#ffg-form-group errors=model.errors hasValidated=hasValidated property="identification"}}
               <span class="input-icon icon-mail">
                   {{ffg-trim-focus-input model.identification class="email" type="email" placeholder="Email Address" name="identification" autocapitalize="off" autocorrect="off" focusOut=(action "validate" "identification") update=(action (mut model.identification))}}

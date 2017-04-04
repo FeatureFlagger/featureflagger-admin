@@ -23,9 +23,6 @@ export default Controller.extend(ValidationEngine, {
       let authResult = yield this.get('session')
           .authenticate(authStrategy, ...authentication);
 
-      // fetch settings for synchronous access
-      yield this.get('settings').fetch();
-
       return authResult;
 
     } catch(error) {
@@ -43,16 +40,9 @@ export default Controller.extend(ValidationEngine, {
 
         this.set('flowErrors', error.errors[0].message.string);
 
-        if (error.errors[0].message.string.match(/user with that email/)) {
-          this.get('model.errors').add('identification', '');
-        }
-
-        if (error.errors[0].message.string.match(/password is incorrect/)) {
+        if (error.errors[0].message.string.match(/Invalid Password/)) {
           this.get('model.errors').add('password', '');
         }
-      } else {
-        // Connection errors don't return proper status message, only req.body
-        // this.get('notifications').showAlert('There was a problem on the server.', { type: 'error', key: 'session.authenticate.failed' });
       }
     }
   }).drop(),
@@ -77,11 +67,5 @@ export default Controller.extend(ValidationEngine, {
     } catch(error) {
       this.set('flowErrors', 'Please fill out the form to sign in.');
     }
-  }).drop(),
-
-  actions: {
-    authenticate() {
-      this.get('validateAndAuthenticate').perform();
-    }
-  }
+  }).drop()
 });
