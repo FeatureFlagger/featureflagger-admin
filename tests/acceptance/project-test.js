@@ -26,7 +26,7 @@ describe('Acceptance: Project', () => {
     visit('/project');
 
     andThen(() => {
-      expect(currentURL()).to.equal('/login');
+      expect(currentURL()).to.equal('/signin');
     });
   });
 

@@ -8,7 +8,7 @@ const FeatureFlaggerRouter = Router.extend({
 
 FeatureFlaggerRouter.map(function() {
   this.route('project');
-  this.route('login');
+  this.route('signin');
 
   return null;
 });

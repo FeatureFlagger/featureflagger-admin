@@ -28,7 +28,7 @@ describe('Acceptance: Signin', function() {
 
     authenticateSession(application);
 
-    visit('/login');
+    visit('/signin');
     andThen(() => {
       expect(currentURL(), 'current url').to.equal('/');
     });
@@ -71,10 +71,10 @@ describe('Acceptance: Signin', function() {
     it('errors correctly', function() {
       invalidateSession(application);
 
-      visit('/login');
+      visit('/signin');
 
       andThen(() => {
-        expect(currentURL(), 'signin url').to.equal('/login');
+        expect(currentURL(), 'signin url').to.equal('/signin');
 
         expect(find('input[name="identification"]').length, 'email input field')
             .to.equal(1);
@@ -97,7 +97,7 @@ describe('Acceptance: Signin', function() {
       click('.ffg-btn-blue');
 
       andThen(() => {
-        expect(currentURL(), 'current url').to.equal('/login');
+        expect(currentURL(), 'current url').to.equal('/signin');
 
         expect(find('.main-error').length, 'main error is displayed')
             .to.equal(1);
@@ -110,10 +110,10 @@ describe('Acceptance: Signin', function() {
     it('submits successfully', function() {
       invalidateSession(application);
 
-      visit('/login');
+      visit('/signin');
 
       andThen(() => {
-        expect(currentURL(), 'current url').to.equal('/login');
+        expect(currentURL(), 'current url').to.equal('/signin');
       });
 
       fillIn('[name="identification"]', 'test@example.com');
