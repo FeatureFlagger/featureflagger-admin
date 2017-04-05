@@ -13,10 +13,13 @@
 /* Components: Groups of Styles
 /* ---------------------------------------------------------- */
 @import "components/dropdowns.css";
+@import "components/badges.css";
 
 
 /* Layouts: Groups of Styles
 /* ---------------------------------------------------------- */
 @import "layouts/main.css";
+@import "layouts/apps.css";
 @import "layouts/flow.css";
 @import "layouts/auth.css";
+@import "layouts/users.css";

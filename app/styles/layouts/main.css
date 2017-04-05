@@ -160,6 +160,10 @@ body > .ember-view:not(.default-liquid-destination) {
     transform: translateX(0);
 }
 
+.ffg-nav {
+    border-right: #dfe1e3 1px solid;
+}
+
 .ffg-nav-menu {
     flex-shrink: 0;
     display: flex;
@@ -208,4 +212,115 @@ body > .ember-view:not(.default-liquid-destination) {
     white-space: nowrap;
     font-size: 1.2rem;
     line-height: 1.2em;
+}
+
+
+.ffg-nav-body {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.ffg-nav-list {
+    margin: 0;
+    padding: 0 15px 0 0;
+    list-style: none;
+    font-size: 1.3rem;
+    line-height: 1.5em;
+}
+
+.ffg-nav-list li {
+    margin: 0;
+}
+
+.ffg-nav-list .ffg-nav-list-h {
+    overflow: hidden;
+    margin-top: 15px;
+    padding: 10px 10px 10px 25px;
+    color: #808284;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    font-size: 1.1rem;
+    line-height: 1.1em;
+}
+
+.ffg-nav-list a {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px 5px 15px;
+    border-radius: 0 4px 4px 0;
+    color: var(--darkgrey);
+    opacity: 0.9;
+    transition: none;
+}
+
+.ffg-nav-list .active {
+    background: color(var(--blue) lightness(+10%));
+    color: #fff;
+    opacity: 1;
+}
+
+.ffg-nav-list a:not(.active):hover {
+    background: color(var(--blue) alpha(-85%));
+    color: var(--darkgrey);
+    opacity: 1;
+}
+
+.ffg-nav-list i {
+    margin-right: 8px;
+    width: 15px;
+    height: 15px;
+    color: rgba(0,0,0,0.6);
+    text-align: center;
+    font-size: 15px;
+    line-height: 1;
+}
+
+.ffg-nav-list .active i {
+    color: #fff;
+}
+
+.ffg-nav-list a:not(.active):hover i {
+    color: var(--darkgrey);
+}
+
+
+.ffg-canvas {
+    flex-grow: 1;
+    padding: 2.9vw 4vw 3vw 4vw;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.ffg-canvas-header {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 2vw 0;
+}
+
+.ffg-canvas-title {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 3.4rem;
+    line-height: 1.2em;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.view-actions {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.view-actions .ffg-btn {
+    margin-left: 8px;
 }

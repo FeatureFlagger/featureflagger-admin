@@ -11,6 +11,7 @@ FeatureFlaggerRouter.map(function() {
   this.route('signin');
   this.route('signout');
 
+  this.route('team', { path: '/team' }, function() {});
   this.route('dashboard', { path: '/' }, function() {});
   return null;
 });
