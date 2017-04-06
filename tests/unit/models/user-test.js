@@ -4,6 +4,9 @@ import { setupModelTest } from 'ember-mocha';
 
 describe('Unit | Model | user', () => {
   setupModelTest('user', {
+    needs: [
+      'model:role'
+    ]
   });
 
   // Replace this with your real tests.

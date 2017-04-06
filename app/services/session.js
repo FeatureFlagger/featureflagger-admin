@@ -6,7 +6,7 @@ export default SessionService.extend({
   store: injectService(),
 
   user: computed(function() {
-    const userId = this.get('data.authenticated.userId');
+    const userId = this.get('data.authenticated.userId') || 'me';
     return this.get('store').find('user', userId);
   })
 });
