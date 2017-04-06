@@ -195,8 +195,8 @@ describe('Integration: Component: ffg-task-button', function() {
     }));
 
     this.render(hbs`{{ffg-task-button task=myTask}}`);
-    let width = this.$('button').width();
-    let height = this.$('button').height();
+    const width = this.$('button').width();
+    const height = this.$('button').height();
     expect(this.$('button')).to.not.have.attr('style');
 
     this.get('myTask').perform();
@@ -205,8 +205,8 @@ describe('Integration: Component: ffg-task-button', function() {
       // we can't test exact width/height because Chrome/Firefox use different rounding methods
       // expect(this.$('button')).to.have.attr('style', `width: ${width}px; height: ${height}px;`);
 
-      let [widthInt] = width.toString().split('.');
-      let [heightInt] = height.toString().split('.');
+      const [widthInt] = width.toString().split('.');
+      const [heightInt] = height.toString().split('.');
 
       expect(this.$('button').attr('style')).to.have.string(`width: ${widthInt}`);
       expect(this.$('button').attr('style')).to.have.string(`height: ${heightInt}`);

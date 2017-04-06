@@ -40,7 +40,7 @@ describe('Acceptance: Signin', function() {
 
       server.post('/token', function(schema, { requestBody }) {
         /* eslint-disable camelcase */
-        let {
+        const {
             grant_type: grantType,
             username,
             password
