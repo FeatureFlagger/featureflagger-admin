@@ -11,6 +11,52 @@
                               modifier="action wide"}}
     {{/if}}
   <section class="ffg-team">
+
+    {{#if model.invites}}
+    <section class="apps-grid-container ffg-invited-users" data-test-invited-users>
+        <span class="apps-grid-title">Invited users</span>
+        <div class="apps-grid">
+
+            {{#each sortedInvites as |invite|}}
+                {{#ffg-user-invited invite=invite reload="reload" as |component|}}
+                    <div class="apps-grid-cell" data-test-invite-id="{{invite.id}}">
+                        <article class="apps-card-app">
+                            <div class="apps-card-left">
+                                <span class="user-list-item-icon icon-mail">ic</span>
+                                <div class="apps-card-meta">
+                                    <h3 class="apps-card-app-title" data-test-email>{{invite.email}}</h3>
+                                    <p class="apps-card-app-desc">
+                                      <span class="description" data-test-invite-description>
+                                          Invitation sent: {{component.createdAt}},
+                                          {{if component.isExpired "expired" "expires"}} {{component.expiresAt}}
+                                      </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="apps-card-right">
+                                <div class="apps-configured">
+                                    {{#if component.isSending}}
+                                        <span>Sending Invite...</span>
+                                    {{else}}
+                                        <a class="apps-configured-action red-hover" href="#revoke" {{action "revoke" target=component}} data-test-revoke-button>
+                                            Revoke
+                                        </a>
+                                        <a class="apps-configured-action green-hover" href="#resend" {{action "resend" target=component}} data-test-resend-button>
+                                            Resend
+                                        </a>
+                                        <span class="apps-configured-action ffg-badge {{invite.role.lowerCaseName}}" data-test-role-name>{{invite.role.name}}</span>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                {{/ffg-user-invited}}
+            {{/each}}
+
+        </div>
+    </section>
+    {{/if}}
+
     <section class="apps-grid-container ffg-active-users" data-test-active-users>
         <span class="apps-grid-title">Active users</span>
         <div class="apps-grid">

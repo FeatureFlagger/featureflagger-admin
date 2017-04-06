@@ -12,6 +12,6 @@ export default Model.extend({
   updatedAtUTC: attr('moment-utc'),
   updatedBy: attr('number'),
   status: attr('string'),
-  role: belongsTo('role', { async: false })
+  role: belongsTo('role', { embedded: 'always', async: false })
 
 });

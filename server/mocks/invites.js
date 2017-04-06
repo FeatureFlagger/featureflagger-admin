@@ -1,4 +1,4 @@
-
+var moment = require('moment');
 module.exports = function(app) {
   var express = require('express');
   var router = express.Router();
@@ -9,21 +9,21 @@ module.exports = function(app) {
       var response = {
         data: function(){
           var arr = [];
-          for(var i = 1;i <= 5; i++){
+          for(var i = 1;i <= 2; i++){
             arr.push({
               type: 'invites',
               id: i,
               attributes: {
                 token: '1234',
                 email: `dev${i}@example.com`,
-                expires: 123456,
-                updated_by: "2017-04-05T22:53:42.000Z" ,
-                created_by: "2017-04-05T22:53:42.000Z" ,
+                expires: moment.utc().add(1, 'day').valueOf(),
+                'updated-at': moment.utc().format(),
+                'created-at': moment.utc().format(),
                 status: 'pending',
                 name: `Convidado ${i}`
               },
               relationships: {
-                roles: {
+                role: {
                   data: {
                     type: 'roles',
                     id: 2
@@ -57,6 +57,14 @@ module.exports = function(app) {
     if (/Bearer .+/.test(req.headers.authorization)) {
       var response = req.body;
       response.data.id = i++;
+      response.data.attributes = {
+        token: '1234',
+        email: response.data.attributes.email,
+        expires: moment.utc().add(1, 'day').valueOf(),
+        'updated-at': moment.utc().format(),
+        'created-at': moment.utc().format(),
+        status: 'pending',
+      };
       res.status(200).send(response);
 
     } else {

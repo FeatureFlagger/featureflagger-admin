@@ -1,3 +1,4 @@
+var moment = require('moment');
 
 module.exports = function(app) {
   var express = require('express');
@@ -14,7 +15,7 @@ module.exports = function(app) {
             email: 'dev@example.com',
             image: '//www.gravatar.com/avatar/7a668b0496b5d8521936d89a0e62ee5d',
             name: 'User 1',
-            'last-login': "2017-04-05T22:53:42.000Z"
+            'last-login': moment.utc().format(),
           },
           relationships: {
             roles: {
@@ -54,7 +55,7 @@ module.exports = function(app) {
               type: 'users',
               id: i,
               attributes: {
-                'last-login': "2017-04-05T22:53:42.000Z" ,
+                'last-login': moment.utc().add(i, 'day').format(),
                 email: `dev${i}@example.com`,
                 name: `User ${i}`
               },
