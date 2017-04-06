@@ -5,6 +5,7 @@ import DS from 'ember-data';
 import Model from 'ember-data/model';
 
 import SigninValidator from 'featureflagger-admin/validators/signin';
+import InviteUserValidator from 'featureflagger-admin/validators/invite-user';
 
 import ValidatorExtensions from 'featureflagger-admin/utils/validator-extensions';
 
@@ -15,7 +16,8 @@ ValidatorExtensions.init();
 
 export default Mixin.create({
   validators: {
-    signin: SigninValidator
+    signin: SigninValidator,
+    inviteUser: InviteUserValidator
   },
 
   // This adds the Errors object to the validation engine, and shouldn't affect

@@ -18,6 +18,7 @@ export default ModalComponent.extend(ValidationEngine, {
   validationType: 'inviteUser',
 
   store: injectService(),
+  notifications: injectService(),
 
   init() {
     this._super(...arguments);
@@ -25,13 +26,13 @@ export default ModalComponent.extend(ValidationEngine, {
     // populate roles and set initial value for the dropdown
     run.schedule('afterRender', this, function() {
       this.get('store').query('role', { permissions: 'assign' }).then((roles) => {
-        const authorRole = roles.findBy('name', 'Author');
+        const productManagerRole = roles.findBy('name', 'Product Manager');
 
         this.set('roles', roles);
-        this.set('authorRole', authorRole);
+        this.set('authorRole', productManagerRole);
 
         if (!this.get('role')) {
-          this.set('role', authorRole);
+          this.set('role', productManagerRole);
         }
       });
     });
@@ -106,7 +107,7 @@ export default ModalComponent.extend(ValidationEngine, {
       if (invite.get('status') === 'pending') {
         notifications.showAlert('Invitation email was not sent.  Please try resending.', { type: 'error', key: 'invite.send.failed' });
       } else {
-        notifications.showNotification(notificationText, { key: 'invite.send.success' });
+        notifications.showNotification(notificationText, { type: 'success', key: 'invite.send.success' });
       }
 
       this.send('closeModal');

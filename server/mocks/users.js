@@ -33,16 +33,6 @@ module.exports = function(app) {
             id: 1,
             attributes: {
               name: 'Owner'
-            },
-            relationships: {
-              roles: {
-                data: [
-                  {
-                    type: 'users',
-                    id: 1
-                  }
-                ]
-              }
             }
           }
         ]
@@ -67,11 +57,30 @@ module.exports = function(app) {
                 'last-login': "2017-04-05T22:53:42.000Z" ,
                 email: `dev${i}@example.com`,
                 name: `User ${i}`
+              },
+              relationships: {
+                roles: {
+                  data: [
+                    {
+                      type: 'roles',
+                      id: 3
+                    }
+                  ]
+                }
               }
             });
           }
           return arr;
-        }()
+        }(),
+        included: [
+          {
+            type: 'roles',
+            id: 3,
+            attributes: {
+              name: 'Developer'
+            }
+          }
+        ]
       };
 
       setTimeout(function(){

@@ -71,7 +71,7 @@
     );
 }
 
-.ffg-badge.editor {
+.ffg-badge.developer {
     border: color(var(--blue) blackness(+8%)) 1px solid;
     background: linear-gradient(
     color(var(--blue) whiteness(+10%)),
@@ -79,7 +79,7 @@
     );
 }
 
-.ffg-badge.author {
+.ffg-badge.product_owner {
     border: color(var(--lightgrey) blackness(+8%)) 1px solid;
     color: color(var(--midgrey) l(+5%));
     background: #fff;
