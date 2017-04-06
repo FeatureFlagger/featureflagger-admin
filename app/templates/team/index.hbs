@@ -5,33 +5,38 @@
                 <button class="ffg-btn ffg-btn-green" {{action "toggleInviteUserModal"}} ><span>Invite People</span></button>
             </section>
     </header>
+  <section class="ffg-team">
+    <section class="apps-grid-container ffg-active-users" data-test-active-users>
+        <span class="apps-grid-title">Active users</span>
+        <div class="apps-grid">
+            {{#each sortedActiveUsers key="id" as |user|}}
 
-  <section class="apps-grid-container ffg-active-users" data-test-active-users>
-      <span class="apps-grid-title">Active users</span>
-      <div class="apps-grid">
-          {{#each sortedActiveUsers key="id" as |user|}}
-          {{#link-to "team"}}
-            <div class="apps-grid-cell">
-                <article class="apps-card-app">
-                    <div class="apps-card-left">
-                        <span class="user-list-item-figure" style={{component.userImageBackground}}>
-                            <span class="hidden">Photo of {{user.name}}</span>
-                        </span>
-                        <div class="apps-card-meta">
-                            <h3 class="apps-card-app-title">{{user.name}}</h3>
-                            <p class="apps-card-app-desc">Last seen: {{component.lastLoginUTC}}</p>
-                        </div>
-                    </div>
-                    <div class="apps-card-right">
-                        <div class="apps-configured">
-                            <span class="ffg-badge owner" data-test-role-name>Owner</span>
-                            <i class="icon-arrow-right"></i>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            {{/link-to}}
-          {{/each}}
-      </div>
+              {{#ffg-user-active user=user as |component|}}
+              <div class="apps-grid-cell">
+                {{#link-to "team"}}
+                  <article class="apps-card-app">
+                      <div class="apps-card-left">
+                          <span class="user-list-item-figure" style={{component.userImageBackground}}>
+                              <span class="hidden">Photo of {{user.name}}</span>
+                          </span>
+                          <div class="apps-card-meta">
+                              <h3 class="apps-card-app-title">{{user.name}}</h3>
+                              <p class="apps-card-app-desc">Last seen: {{component.lastLoginUTC}}</p>
+                          </div>
+                      </div>
+                      <div class="apps-card-right">
+                          <div class="apps-configured">
+                              <span class="ffg-badge owner" data-test-role-name>Owner</span>
+                              <i class="icon-arrow-right"></i>
+                          </div>
+                      </div>
+                  </article>
+                  {{/link-to}}
+              </div>
+              {{/ffg-user-active}}
+
+            {{/each}}
+        </div>
+    </section>
   </section>
 </section>

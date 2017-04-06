@@ -24,8 +24,8 @@
 }
 
 .apps-grid {
-    /*display: flex;*/
     display: block;
+    display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
     max-width: 1200px;

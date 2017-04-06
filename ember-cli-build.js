@@ -42,6 +42,12 @@ module.exports = function(defaults) {
         'jquery-deparam': {
             import: ['jquery-deparam.js']
         },
+        moment: {
+            import: ['moment.js']
+        },
+        'moment-timezone': {
+            import: ['builds/moment-timezone-with-data.js']
+        },
     },
   });
 

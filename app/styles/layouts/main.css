@@ -152,7 +152,7 @@ body > .ember-view:not(.default-liquid-destination) {
 .ffg-nav {
     position: relative;
     z-index: 800;
-    flex: 0 0 205px;
+    flex: 0 0 280px;
     display: flex;
     flex-direction: column;
     min-width: 0; /* TODO: This is a bullshit Firefox hack */
@@ -168,7 +168,7 @@ body > .ember-view:not(.default-liquid-destination) {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 25px;
     cursor: pointer;
 }
 
@@ -187,6 +187,7 @@ body > .ember-view:not(.default-liquid-destination) {
     width: 34px;
     height: 34px;
     background-size: 34px;
+    background-color: #343f44;
     border-radius: 4px;
 }
 
@@ -248,7 +249,7 @@ body > .ember-view:not(.default-liquid-destination) {
 .ffg-nav-list a {
     display: flex;
     align-items: center;
-    padding: 5px 10px 5px 15px;
+    padding: 7px 10px 7px 25px;
     border-radius: 0 4px 4px 0;
     color: var(--darkgrey);
     opacity: 0.9;

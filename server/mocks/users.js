@@ -1,3 +1,4 @@
+
 module.exports = function(app) {
   var express = require('express');
   var router = express.Router();
@@ -8,18 +9,16 @@ module.exports = function(app) {
       var response = {
         data: {
           type: 'users',
-          id: '1',
+          id: 1,
           attributes: {
             email: 'dev@example.com',
-            name: 'Dev'
+            image: '//www.gravatar.com/avatar/7a668b0496b5d8521936d89a0e62ee5d',
+            name: 'User 1',
+            'last-login': "2017-04-05T22:53:42.000Z"
           }
         }
       };
-
-      // delay this a bit so we see the loading template
-      setTimeout(function() {
-        res.status(200).send(response);
-      }, 1000);
+      res.status(200).send(response);
     } else {
       res.status(401).end();
     }
@@ -31,11 +30,13 @@ module.exports = function(app) {
       var response = {
         data: function(){
           var arr = [];
-          for(var i = 0;i <= 10; i++){
+          for(var i = 1;i <= 10; i++){
             arr.push({
               type: 'users',
               id: i,
               attributes: {
+                'last-login': "2017-04-05T22:53:42.000Z" ,
+                email: `dev${i}@example.com`,
                 name: `User ${i}`
               }
             });
@@ -44,10 +45,9 @@ module.exports = function(app) {
         }()
       };
 
-      // delay this a bit so we see the loading template
-      setTimeout(function() {
-        res.status(200).send(response);
-      }, 1000);
+
+      res.status(200).send(response);
+
     } else {
       res.status(401).end();
     }

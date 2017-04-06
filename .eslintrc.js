@@ -12,9 +12,11 @@ module.exports = {
     browser: true
   },
   rules: {
-
+    'ember-suave/no-const-outside-module-scope': 0,
+    'prefer-const': 2
   },
   globals: {
-    validator: false
+    validator: false,
+    moment: false,
   }
 };
