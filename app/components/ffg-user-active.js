@@ -22,8 +22,8 @@ export default Component.extend({
     return htmlSafe(`background-image: url(${safeUrl})`);
   }),
 
-  lastLoginUTC: computed('user.lastLogin', function() {
-    const lastLoginUTC = this.get('user.lastLogin');
+  lastLoginUTC: computed('user.lastLoginUTC', function() {
+    const lastLoginUTC = this.get('user.lastLoginUTC');
 
     return lastLoginUTC ? moment(lastLoginUTC).fromNow() : '(Never)';
   })

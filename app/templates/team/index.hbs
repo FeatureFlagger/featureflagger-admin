@@ -5,6 +5,11 @@
                 <button class="ffg-btn ffg-btn-green" {{action "toggleInviteUserModal"}} ><span>Invite People</span></button>
             </section>
     </header>
+    {{#if showInviteUserModal}}
+        {{ffg-fullscreen-modal "invite-new-user"
+                              close=(action "toggleInviteUserModal")
+                              modifier="action wide"}}
+    {{/if}}
   <section class="ffg-team">
     <section class="apps-grid-container ffg-active-users" data-test-active-users>
         <span class="apps-grid-title">Active users</span>
@@ -26,7 +31,9 @@
                       </div>
                       <div class="apps-card-right">
                           <div class="apps-configured">
-                              <span class="ffg-badge owner" data-test-role-name>Owner</span>
+                            {{#each user.roles as |role|}}
+                                <span class="ffg-badge {{role.lowerCaseName}}" data-test-role-name>{{role.name}}</span>
+                            {{/each}}
                               <i class="icon-arrow-right"></i>
                           </div>
                       </div>

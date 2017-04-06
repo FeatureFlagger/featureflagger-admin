@@ -15,8 +15,37 @@ module.exports = function(app) {
             image: '//www.gravatar.com/avatar/7a668b0496b5d8521936d89a0e62ee5d',
             name: 'User 1',
             'last-login': "2017-04-05T22:53:42.000Z"
+          },
+          relationships: {
+            roles: {
+              data: [
+                {
+                  type: 'roles',
+                  id: 1
+                }
+              ]
+            }
           }
-        }
+        },
+        included: [
+          {
+            type: 'roles',
+            id: 1,
+            attributes: {
+              name: 'Owner'
+            },
+            relationships: {
+              roles: {
+                data: [
+                  {
+                    type: 'users',
+                    id: 1
+                  }
+                ]
+              }
+            }
+          }
+        ]
       };
       res.status(200).send(response);
     } else {
@@ -45,8 +74,10 @@ module.exports = function(app) {
         }()
       };
 
+      setTimeout(function(){
+        res.status(200).send(response);
 
-      res.status(200).send(response);
+      }, 1000);
 
     } else {
       res.status(401).end();

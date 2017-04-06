@@ -1,0 +1,13 @@
+{{#liquid-wormhole class="fullscreen-modal-container"}}
+    <div class="fullscreen-modal-background" {{action "clickOverlay"}}></div>
+    <div class={{modalClasses}}>
+        {{#if hasBlock}}
+          {{yield}}
+        {{else}}
+          {{component modalPath
+                      model=model
+                      confirm=(action 'confirm')
+                      closeModal=(action 'close')}}
+        {{/if}}
+    </div>
+{{/liquid-wormhole}}
