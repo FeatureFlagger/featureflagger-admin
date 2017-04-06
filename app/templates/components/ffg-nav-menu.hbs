@@ -1,7 +1,7 @@
 {{#ffg-dropdown-button tagName="header" class="ffg-nav-menu" dropdownName="user-menu"}}
     <div class="ffg-nav-menu-icon" style="background-image: url(assets/img/featureflagger-logo.png)"></div>
     <div class="ffg-nav-menu-details">
-        <div class="ffg-nav-menu-details-blog">FeatureFalgger</div>
+        <div class="ffg-nav-menu-details-blog">FeatureFlagger</div>
         <div class="ffg-nav-menu-details-user">{{session.user.name}}</div>
     </div>
     <i class="icon-arrow"></i>
@@ -16,8 +16,18 @@
 
 <section class="ffg-nav-body">
   <ul class="ffg-nav-list ffg-nav-main">
-      <li>{{#link-to "dashboard"}}<i class="icon-dash"></i>Dashboard{{/link-to}}</li>
-      <li>{{#link-to "team"}}<i class="icon-team"></i>Team{{/link-to}}</li>
+    <li>{{#link-to "dashboard"}}<i class="icon-dash"></i>Dashboard{{/link-to}}</li>
+  </ul>
+
+  <ul class="ffg-nav-list ffg-nav-main">
+    <li class="ffg-nav-list-h">Livrio</li>
+    <li>{{#link-to "dashboard"}}<i class="icon-user"></i>Accounts{{/link-to}}</li>
+    <li>{{#link-to "dashboard"}}<i class="icon-box"></i>Features{{/link-to}}</li>
+  </ul>
+
+  <ul class="ffg-nav-list ffg-nav-settings">
+      <li class="ffg-nav-list-h">Settings</li>
+      <li>{{#link-to "team"}}<i class="icon-team"></i>People{{/link-to}}</li>
       <li>{{#link-to "project"}}<i class="icon-folder"></i>Projects{{/link-to}}</li>
   </ul>
 </section>
