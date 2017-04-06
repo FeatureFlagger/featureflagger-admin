@@ -51,10 +51,10 @@ export default Component.extend(DropdownMixin, {
 
   // Called by the dropdown service when any dropdown button is clicked.
   toggle(options) {
-    let isClosing = this.get('closing');
-    let isOpen = this.get('isOpen');
-    let name = this.get('name');
-    let targetDropdownName = options.target;
+    const isClosing = this.get('closing');
+    const isOpen = this.get('isOpen');
+    const name = this.get('name');
+    const targetDropdownName = options.target;
     let button = this.get('button');
 
     if (name === targetDropdownName && (!isOpen || isClosing)) {
@@ -77,7 +77,7 @@ export default Component.extend(DropdownMixin, {
   },
 
   didInsertElement() {
-    let dropdownService = this.get('dropdown');
+    const dropdownService = this.get('dropdown');
 
     this._super(...arguments);
 
@@ -86,7 +86,7 @@ export default Component.extend(DropdownMixin, {
   },
 
   willDestroyElement() {
-    let dropdownService = this.get('dropdown');
+    const dropdownService = this.get('dropdown');
 
     this._super(...arguments);
 

@@ -6,7 +6,7 @@ import setupSessionService from 'ember-simple-auth/initializers/setup-session-se
 export default {
   name: 'ember-simple-auth',
   initialize(registry) {
-    let config   = ENV['ember-simple-auth'] || {};
+    const config   = ENV['ember-simple-auth'] || {};
     Configuration.load(config);
 
     setupSession(registry);

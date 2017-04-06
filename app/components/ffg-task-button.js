@@ -25,7 +25,7 @@ const FFgTaskButton = Component.extend({
       return false;
     }
 
-    let value = this.get('task.last.value');
+    const value = this.get('task.last.value');
     return !isBlank(value) && value !== false;
   }),
 
@@ -59,9 +59,9 @@ const FFgTaskButton = Component.extend({
       return false;
     }
 
-    let task = this.get('task');
-    let taskName = this.get('task.name');
-    let lastTaskName = this.get('task.last.task.name');
+    const task = this.get('task');
+    const taskName = this.get('task.name');
+    const lastTaskName = this.get('task.last.task.name');
 
     // task-buttons are never disabled whilst running so that clicks when a
     // taskGroup is running don't get dropped BUT that means we need to check

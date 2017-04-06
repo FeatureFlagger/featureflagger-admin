@@ -34,9 +34,6 @@ export default Mixin.create({
 
   validate(opts) {
     let model = this;
-    let hasValidated,
-      type,
-      validator;
 
     opts = opts || {};
 
@@ -48,15 +45,13 @@ export default Mixin.create({
       model = this.get('model');
     }
 
-    type = this.get('validationType') || model.get('validationType');
-    validator = this.get(`validators.${type}`) || model.get(`validators.${type}`);
-    hasValidated = this.get('hasValidated');
+    const type = this.get('validationType') || model.get('validationType');
+    const validator = this.get(`validators.${type}`) || model.get(`validators.${type}`);
+    const hasValidated = this.get('hasValidated');
 
     opts.validationType = type;
 
     return new RSVP.Promise((resolve, reject) => {
-      let passed;
-
       if (!type || !validator) {
         return reject([`The validator specified, "${type}", did not exist!`]);
       }
@@ -69,14 +64,14 @@ export default Mixin.create({
         model.get('errors').clear();
       }
 
-      passed = validator.check(model, opts.property);
+      const passed = validator.check(model, opts.property);
 
       return (passed) ? resolve() : reject();
     });
   },
 
   save(options) {
-    let { _super } = this;
+    const { _super } = this;
 
     options = options || {};
     options.wasSave = true;

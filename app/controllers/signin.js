@@ -20,7 +20,7 @@ export default Controller.extend(ValidationEngine, {
 
   authenticate: task(function* (authStrategy, authentication) {
     try {
-      let authResult = yield this.get('session')
+      const authResult = yield this.get('session')
           .authenticate(authStrategy, ...authentication);
 
       return authResult;
@@ -48,8 +48,8 @@ export default Controller.extend(ValidationEngine, {
   }).drop(),
 
   validateAndAuthenticate: task(function* () {
-    let model = this.get('model');
-    let authStrategy = 'authenticator:oauth2';
+    const model = this.get('model');
+    const authStrategy = 'authenticator:oauth2';
 
     this.set('flowErrors', '');
     // Manually trigger events for input fields, ensuring legacy compatibility with

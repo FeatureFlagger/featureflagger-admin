@@ -13,9 +13,9 @@ export default Mixin.create({
   hasError: false,
 
   setHasError() {
-    let property = this.get('property');
-    let errors = this.get('errors');
-    let hasValidated = this.get('hasValidated');
+    const property = this.get('property');
+    const errors = this.get('errors');
+    const hasValidated = this.get('hasValidated');
 
     // if we aren't looking at a specific property we always want an error class
     if (!property && errors && !errors.get('isEmpty')) {
