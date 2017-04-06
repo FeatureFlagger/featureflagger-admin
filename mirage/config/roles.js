@@ -1,0 +1,11 @@
+import { paginateModelArray } from '../utils';
+
+export default function mockRoles(server) {
+  server.get('/roles/', function ({roles}, {queryParams}) {
+      if (queryParams.permissions === 'assign') {
+        return roles.find([1, 2, 3]);
+      }
+
+      return roles.all();
+  });
+}
