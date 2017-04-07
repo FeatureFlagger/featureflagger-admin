@@ -1,0 +1,41 @@
+<section class="ffg-canvas">
+    <header class="ffg-canvas-header">
+      <h2 class="ffg-canvas-title"><span>Projects</span></h2>
+        <section class="view-actions">
+            <button class="ffg-btn ffg-btn-green" {{action "toggleNewProjectModal"}} ><span>New Project</span></button>
+        </section>
+    </header>
+
+    {{#if showNewProjectModal}}
+        {{ffg-fullscreen-modal "new-project"
+                              close=(action "toggleNewProjectModal")
+                              modifier="action wide"}}
+    {{/if}}
+
+    <section class="apps-grid-container">
+        <div class="apps-grid">
+
+          {{#each model as |project|}}
+          <div class="apps-grid-cell">
+              {{#link-to 'dashboard' class="project-edit-button"}}
+                <article class="apps-card-app">
+                    <div class="apps-card-left">
+                        <div class="apps-card-meta">
+                            <h3 class="apps-card-app-title">{{project.name}}</h3>
+                            <p class="apps-card-app-desc">{{project.description}}</p>
+                        </div>
+                    </div>
+                    <div class="apps-card-right">
+                        <i class="icon-arrow-right"></i>
+                    </div>
+                </article>
+              {{/link-to}}
+          </div>
+          {{/each}}
+
+
+
+        </div>
+
+        </section>
+</section>

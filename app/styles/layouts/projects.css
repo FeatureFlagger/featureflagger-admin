@@ -1,0 +1,87 @@
+/* project Management /ghost/settings/projects/
+/* ---------------------------------------------------------- */
+
+
+/* project
+/* ---------------------------------------------------------- */
+
+.settings-project {
+    position: relative;
+    display: block;
+    padding: 0 45px 0 0;
+    border-bottom: var(--lightgrey) 1px solid;
+}
+
+.settings-project:hover {
+  background: rgb(248, 250, 252);
+}
+
+.settings-project .project-edit-button {
+    display: block;
+    padding: 20px;
+    width: calc(100% + 45px);
+    text-align: left;
+}
+
+.settings-project .project-edit-button.active {
+    border-left: 3px solid;
+}
+
+.settings-project .label {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 100%;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.settings-project .label-alt {
+    text-transform: uppercase;
+}
+
+.settings-project .project-title {
+    color: var(--darkgrey);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.settings-project .project-description {
+    margin: 0;
+    color: var(--midgrey);
+    word-wrap: break-word;
+    font-size: 13px;
+}
+
+.settings-project .project-count {
+    position: absolute;
+    top: 20px;
+    right: 12px;
+    color: var(--midgrey);
+    font-size: 16px;
+}
+
+/* project List (Left pane)
+/* ---------------------------------------------------------- */
+
+.project-list {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    max-width: calc(100% - 350px);
+    width: 66%;
+    border-right: var(--lightgrey) 1px solid;
+}
+
+@media (max-width: 600px) {
+    .project-list {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .settings-project .project-edit-button.active {
+        border-left: none;
+    }
+}

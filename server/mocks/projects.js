@@ -1,8 +1,9 @@
+var loremIpsum = require('lorem-ipsum');
 module.exports = function(app) {
   var express = require('express');
-  var accountsRouter = express.Router();
+  var router = express.Router();
 
-  accountsRouter.get('/projects', function(req, res) {
+  router.get('/projects', function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     if (/Bearer .+/.test(req.headers.authorization)) {
       var response = {
@@ -13,7 +14,11 @@ module.exports = function(app) {
               type: 'projects',
               id: i,
               attributes: {
-                name: `Project ${i}`
+                name: `Project ${i}`,
+                description: loremIpsum(),
+                count: {
+                  features: i+10
+                }
               }
             });
           }
@@ -30,5 +35,24 @@ module.exports = function(app) {
     }
   });
 
-  app.use('/api-stub', accountsRouter);
+  var i = 100;
+  router.post('/projects', function(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if (/Bearer .+/.test(req.headers.authorization)) {
+      var response = req.body;
+      response.data.id = i++;
+      response.data.attributes.count = {
+        features: i+10
+      };
+      
+      setTimeout(function() {
+        res.status(200).send(response);
+      }, 1000);
+
+    } else {
+      res.status(401).end();
+    }
+  });
+
+  app.use('/api-stub', router);
 };

@@ -1,0 +1,40 @@
+<header class="modal-header">
+    <h1>New Project</h1>
+</header>
+<a class="close icon-x" href="" title="Close" {{action "closeModal"}}><span class="hidden">Close</span></a>
+
+<div class="modal-body">
+  <fieldset>
+      {{#ffg-form-group errors=errors hasValidated=hasValidated property="name"}}
+          <label for="new-project-name">Project Name</label>
+          {{ffg-input
+              name
+              enter="sendInvite"
+              id="new-project-name"
+              placeholder="Your project name"
+              name="name"
+              autofocus="autofocus"
+              autocapitalize="off"
+              autocorrect="off"
+              focusOut=(action "validate" "name")
+              update=(action (mut name))
+          }}
+          {{ffg-error-message errors=errors property="name"}}
+      {{/ffg-form-group}}
+
+      {{#ffg-form-group errors=errors hasValidated=hasValidated property="description"}}
+      <label for="project-description">Description</label>
+        {{ffg-textarea
+          description
+          id="project-description"
+          name="description"
+          update=(action (mut description))
+        }}
+      {{/ffg-form-group}}
+
+  </fieldset>
+</div>
+
+<div class="modal-footer">
+    {{ffg-task-button "Create now" successText="Sent" task=createProject class="ffg-btn ffg-btn-blue"}}
+</div>
