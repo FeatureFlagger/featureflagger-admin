@@ -12,31 +12,18 @@
                               modifier="action wide"}}
     {{/if}}
 
+    <section class="project-list-content">
 
-    <section class="apps-grid-container">
-        <div class="apps-grid" data-test-projects-list>
+      {{#each model.features as |feature|}}
+      <div class="settings-project">
+          {{#link-to 'dashboard' class="project-edit-button"}}
+              <span class="project-title">{{feature.name}}</span>
+              <span class="label label-default">email_marketing</span>
+              <p class="project-description">{{feature.description}}</p>
+          {{/link-to}}
+      </div>
+      {{/each}}
 
-          {{#each model.features as |project|}}
-          <div class="apps-grid-cell" data-test-project-item="{{project.id}}">
-              {{#link-to 'dashboard' class="project-edit-button"}}
-                <article class="apps-card-app">
-                    <div class="apps-card-left">
-                        <div class="apps-card-meta">
-                            <h3 class="apps-card-app-title">{{project.name}}</h3>
-                            <p class="apps-card-app-desc">{{project.description}}</p>
-                        </div>
-                    </div>
-                    <div class="apps-card-right">
-                        <i class="icon-arrow-right"></i>
-                    </div>
-                </article>
-              {{/link-to}}
-          </div>
-          {{/each}}
+    </section>
 
-
-
-        </div>
-
-        </section>
 </section>
