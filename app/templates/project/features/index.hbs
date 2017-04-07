@@ -2,9 +2,15 @@
     <header class="view-header">
       <h2 class="view-title"><span>{{model.name}} / Features</span></h2>
         <section class="view-actions">
-            <button class="ffg-btn ffg-btn-green" {{action "toggleNewProjectModal"}} ><span>New Feature</span></button>
+            <button class="ffg-btn ffg-btn-green" {{action "toggleNewFeatureModal"}} ><span>New Feature</span></button>
         </section>
     </header>
+
+    {{#if showNewFeatureModal}}
+        {{ffg-fullscreen-modal "new-feature"
+                              close=(action "toggleNewFeatureModal")
+                              modifier="action wide"}}
+    {{/if}}
 
 
     <section class="apps-grid-container">

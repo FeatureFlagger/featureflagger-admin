@@ -1,0 +1,57 @@
+<header class="modal-header">
+    <h1>New Feature</h1>
+</header>
+<a class="close icon-x" href="" title="Close" {{action "closeModal"}}><span class="hidden">Close</span></a>
+
+<div class="modal-body">
+  <fieldset>
+      {{#ffg-form-group errors=errors hasValidated=hasValidated property="name"}}
+          <label for="new-feature-name">Feature Name</label>
+          {{ffg-input
+              name
+              id="new-feature-name"
+              placeholder="Your feature name"
+              name="name"
+              autofocus="autofocus"
+              autocapitalize="off"
+              autocorrect="off"
+              focusOut=(action "validate" "name")
+              update=(action (mut name))
+          }}
+          {{ffg-error-message errors=errors property="name"}}
+      {{/ffg-form-group}}
+
+      {{#ffg-form-group errors=errors hasValidated=hasValidated property="keyName"}}
+          <label for="new-feature-key-name">Feature Name</label>
+          {{ffg-input
+              name
+              id="new-feature-key-name"
+              placeholder="Your feature key name"
+              name="keyName"
+              autofocus="autofocus"
+              autocapitalize="off"
+              autocorrect="off"
+              focusOut=(action "validate" "keyName")
+              update=(action (mut keyName))
+          }}
+          {{ffg-error-message errors=errors property="keyName"}}
+      {{/ffg-form-group}}
+
+      {{#ffg-form-group errors=errors hasValidated=hasValidated property="description"}}
+      <label for="feature-description">Description</label>
+        {{ffg-textarea
+          description
+          id="feature-description"
+          name="description"
+          focusOut=(action "validate" "description")
+          update=(action (mut description))
+        }}
+        {{ffg-error-message errors=errors property="description"}}
+      {{/ffg-form-group}}
+
+  </fieldset>
+</div>
+
+<div class="modal-footer">
+    {{ffg-task-button "Create now" successText="Sent" task=createFeature class="ffg-btn ffg-btn-blue"}}
+</div>
