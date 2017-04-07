@@ -23,7 +23,7 @@ describe('Acceptance: Project', () => {
 
   it('redirects to signin when not authenticated', () => {
     invalidateSession(application);
-    visit('/project');
+    visit('/projects');
 
     andThen(() => {
       expect(currentURL()).to.equal('/signin');
@@ -32,23 +32,23 @@ describe('Acceptance: Project', () => {
 
   it('redirects to signin when authenticated', () => {
     authenticateSession(application);
-    visit('/project');
+    visit('/projects');
 
     andThen(() => {
-      expect(currentURL(), 'currentURL').to.equal('/project');
+      expect(currentURL(), 'currentURL').to.equal('/projects');
     });
   });
 
   it('list project', () => {
     server.createList('project', 3);
     authenticateSession(application);
-    visit('/project');
+    visit('/projects');
 
     andThen(() => {
-      expect(currentURL(), 'currentURL').to.equal('/project');
+      expect(currentURL(), 'currentURL').to.equal('/projects');
 
       expect(
-          find(`${testSelector('project-actives')} ${testSelector('project-item')}`).length,
+          find(`${testSelector('projects-list')} ${testSelector('project-item')}`).length,
           'number of active projects'
       ).to.equal(3);
     });

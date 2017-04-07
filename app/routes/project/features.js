@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import AuthenticatedRoute from 'featureflagger-admin/routes/authenticated';
 
-export default Ember.Route.extend({
+export default AuthenticatedRoute.extend({
+
 });

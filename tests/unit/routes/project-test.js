@@ -3,7 +3,7 @@ import { describe, it } from 'mocha';
 import { setupTest } from 'ember-mocha';
 
 describe('Unit | Route | project', function() {
-  setupTest('route:project', {
+  setupTest('route:projects', {
     needs: [
       'service:session'
     ]

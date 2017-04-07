@@ -8,7 +8,7 @@ export default function() {
   this.passthrough('/write-coverage');
   this.urlPrefix = ENV.API.host;
   this.namespace = `/${ENV.API.namespace}`;
-  this.logging = true;
+  this.logging = false;
   mockProjects(this);
   mockUsers(this);
   mockRoles(this);
