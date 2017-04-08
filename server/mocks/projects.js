@@ -33,7 +33,7 @@ module.exports = function(app) {
         response = {
           data: function(){
             var arr = [];
-            for(var i = 0;i <= 10; i++){
+            for(var i = 2;i <= 3; i++){
               arr.push({
                 type: 'projects',
                 id: i,

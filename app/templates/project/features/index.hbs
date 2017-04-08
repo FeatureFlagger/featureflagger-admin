@@ -14,12 +14,16 @@
 
     <section class="project-list-content">
 
-      {{#each model.features as |feature|}}
-      <div class="settings-project">
+      {{#each sortedFeatures as |feature|}}
+      <div class="settings-project {{if feature.active 'active'}}">
           {{#link-to 'dashboard' class="project-edit-button"}}
-              <span class="project-title">{{feature.name}}</span>
-              <span class="label label-default">email_marketing</span>
+              <span class="project-title">
+                <span class="ffg-circle {{unless feature.active 'ffg-circle-red'}}"></span>
+
+                {{feature.name}}</span>
+              <span class="label label-default">{{feature.keyName}}</span>
               <p class="project-description">{{feature.description}}</p>
+              <span class="project-accounts {{unless feature.active 'accounts-red'}}">{{feature.count.accounts}}%<span class="accounts-label">Accounts</span></span>
           {{/link-to}}
       </div>
       {{/each}}

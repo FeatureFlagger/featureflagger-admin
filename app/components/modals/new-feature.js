@@ -23,7 +23,7 @@ export default ModalComponent.extend(ValidationEngine, {
   createFeature: task(function* () {
     const name = this.get('name');
     const description = this.get('description');
-    const key = this.get('key');
+    const keyName = this.get('keyName');
     const notifications = this.get('notifications');
     const notificationText = `Created feature! (${name})`;
     let feature;
@@ -35,7 +35,7 @@ export default ModalComponent.extend(ValidationEngine, {
       feature = this.get('store').createRecord('feature', {
         name,
         description,
-        key
+        keyName
       });
 
       yield feature.save();

@@ -3,5 +3,8 @@ import attr from 'ember-data/attr';
 
 export default Model.extend({
   name: attr('string'),
-  description: attr('string')
+  description: attr('string'),
+  keyName: attr('string'),
+  active: attr('boolean'),
+  count: attr('raw')
 });

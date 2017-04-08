@@ -1,3 +1,20 @@
+
+.ffg-circle {
+    display: inline-block;
+    padding: 5px;
+    background: linear-gradient(
+    color(var(--green) whiteness(+4%)),
+    color(var(--green) blackness(+4%))
+    );
+    border-radius: 50%;
+}
+
+.ffg-circle-red {
+  background: linear-gradient(
+  color(var(--red) whiteness(+10%)),
+  color(var(--red) blackness(+4%))
+  );
+}
 /* Badges
 /* ---------------------------------------------------------- */
 

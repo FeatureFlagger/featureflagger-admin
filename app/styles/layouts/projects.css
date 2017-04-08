@@ -53,12 +53,25 @@
     font-size: 13px;
 }
 
-.settings-project .project-count {
+.settings-project .project-accounts {
     position: absolute;
     top: 20px;
     right: 12px;
-    color: var(--midgrey);
+    color: var(--green);
+    text-align: center;
     font-size: 16px;
+    font-weight: 600;
+}
+
+.project-accounts .accounts-label{
+    font-size: 16px;
+    display: block;
+    font-weight: normal;
+    color: var(--midgrey);
+}
+
+.project-accounts.accounts-red {
+  color: var(--orange);
 }
 
 /* project List (Left pane)
