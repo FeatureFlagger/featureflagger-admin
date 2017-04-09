@@ -51,10 +51,7 @@ module.exports = function(app) {
         };
       }
 
-      // delay this a bit so we see the loading template
-      setTimeout(function() {
-        res.status(200).send(response);
-      }, 1000);
+      res.status(200).send(response);
     } else {
       res.status(401).end();
     }
@@ -70,9 +67,7 @@ module.exports = function(app) {
         features: i+10
       };
 
-      setTimeout(function() {
-        res.status(200).send(response);
-      }, 1000);
+      res.status(200).send(response);
 
     } else {
       res.status(401).end();

@@ -32,10 +32,7 @@ module.exports = function(app) {
         ]
       };
 
-      setTimeout(function(){
-        res.status(200).send(response);
-
-      }, 1000);
+      res.status(200).send(response);
 
     } else {
       res.status(401).end();

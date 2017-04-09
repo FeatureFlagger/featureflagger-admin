@@ -8,16 +8,19 @@
 {{/ffg-dropdown-button}}
 {{#ffg-dropdown tagName="div" name="user-menu" closeOnClick="true"}}
     <ul class="dropdown-menu dropdown-triangle-top js-user-menu-dropdown-menu" role="menu" style="right:-20px;left:auto;">
+        <li role="presentation"><strong>Livrio</strong></li>
+        <li role="presentation"><a href="/" target="_blank">Production</a></li>
+        <li role="presentation"><a href="/" target="_blank">Staging</a></li>
+        <li role="presentation"><a href="/" target="_blank">Development</a></li>
+        <li class="divider"></li>
         <li role="presentation"><a href="/" target="_blank">View site</a></li>
+
         <li class="divider"></li>
         <li role="presentation">{{#link-to "signout" classNames="dropdown-item user-menu-signout"}}<i class="icon-signout"></i> Sign Out{{/link-to}}</li>
     </ul>
 {{/ffg-dropdown}}
 
 <section class="ffg-nav-body">
-  <ul class="ffg-nav-list ffg-nav-main">
-    <li>{{#link-to "dashboard"}}<i class="icon-dash"></i>Dashboard{{/link-to}}</li>
-  </ul>
 
   <ul class="ffg-nav-list ffg-nav-main">
     <li class="ffg-nav-list-h">Livrio</li>

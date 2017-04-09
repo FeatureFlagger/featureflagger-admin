@@ -50,7 +50,7 @@ module.exports = function(app) {
       var response = {
         data: function(){
           var arr = [];
-          for(var i = 1;i <= 10; i++){
+          for(var i = 1;i <= 4; i++){
             arr.push({
               type: 'users',
               id: i,
@@ -84,10 +84,9 @@ module.exports = function(app) {
         ]
       };
 
-      setTimeout(function(){
-        res.status(200).send(response);
+      res.status(200).send(response);
 
-      }, 1000);
+
 
     } else {
       res.status(401).end();
