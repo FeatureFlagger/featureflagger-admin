@@ -8,5 +8,8 @@ export default Model.extend({
   count: attr('raw'),
   features: hasMany('feature', {
     async: true
+  }),
+  accounts: hasMany('account', {
+    async: true
   })
 });

@@ -1,0 +1,22 @@
+<div class="settings-menu settings-menu-pane project-settings-pane">
+    <div class="settings-menu-header">
+        <h4>{{model.name}}</h4>
+    </div>
+    <div class="settings-menu-content">
+        <form>
+          <div class="form-group">
+            <label>Identifier</label>
+            <p>{{model.identifier}}</p>
+
+            <label>Email</label>
+            <p>{{model.email}}</p>
+
+            {{#each-in model.variables as |key value|}}
+              <label>{{key}}</label>
+              <p>{{value}}</p>
+            {{/each-in}}
+          </div>
+        </form>
+    </div>
+
+  </div>

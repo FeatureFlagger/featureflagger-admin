@@ -24,8 +24,14 @@ module.exports = function(app) {
                 links: {
                   related: "features"
                 }
+              },
+              accounts: {
+                links: {
+                  related: "accounts"
+                }
               }
-            }
+            },
+
           }
         }
       }

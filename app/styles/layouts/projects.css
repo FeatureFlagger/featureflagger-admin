@@ -98,3 +98,47 @@
         border-left: none;
     }
 }
+
+/* Tag Settings (Right pane)
+/* ---------------------------------------------------------- */
+
+.project-settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    min-width: 350px;
+    width: 34%;
+    border: none;
+    transform: none;
+}
+
+.project-settings .no-posts {
+    padding: 1em;
+}
+
+.project-settings .no-posts h3 {
+    text-align: center;
+}
+
+.project-settings .settings-menu-pane {
+    transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+@media (max-width: 600px) {
+    .project-settings {
+        min-width: 0;
+        width: 100%;
+        transition: transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1);
+        transform: translate3d(100%, 0px, 0px);
+
+        transform-style: preserve-3d;
+    }
+
+    .project-settings-in {
+        transform: translate3d(0px, 0px, 0px);
+    }
+}

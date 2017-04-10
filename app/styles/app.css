@@ -10,6 +10,7 @@
 @import "patterns/forms.css";
 @import "patterns/buttons.css";
 @import "patterns/labels.css";
+@import "patterns/tables.css";
 
 /* Components: Groups of Styles
 /* ---------------------------------------------------------- */
@@ -18,6 +19,7 @@
 @import "components/loading-indicator.css";
 @import "components/modals.css";
 @import "components/notifications.css";
+@import "components/settings-menu.css";
 
 
 /* Layouts: Groups of Styles

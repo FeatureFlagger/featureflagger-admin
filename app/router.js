@@ -16,7 +16,10 @@ FeatureFlaggerRouter.map(function() {
   this.route('projects', { path: '/projects' }, function() {});
 
   this.route('project', { path: '/project' }, function() {
-    this.route('accounts', { path: ':project_slug/accounts' }, function() {});
+    this.route('accounts', { path: ':project_slug/accounts' }, function() {
+      this.route('index', { path: '' });
+      this.route('view', { path: ':account_id' });
+    });
     this.route('features', { path: ':project_slug/features' }, function() {});
   });
 
