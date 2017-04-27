@@ -25,7 +25,7 @@
     "broccoli-asset-rev": "^2.4.5",
     "chai-jquery": "2.0.0",
     "cors": "^2.8.3",
-    "coveralls": "^2.13.0",
+    "coveralls": "^2.13.1",
     "ember-ajax": "^2.4.1",
     "ember-cli": "2.12.1",
     "ember-cli-app-version": "^3.0.0",
