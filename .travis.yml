@@ -5,22 +5,16 @@ node_js:
 
 sudo: false
 
-env:
-  - TEST_DIR=client
-
-before_install:
-  - cd $TEST_DIR
-  - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
-  - phantomjs --version
-
-
 cache:
   directories:
     - $HOME/.npm
     - $HOME/.cache # includes bowers cache
 
+before_install:
+  - npm config set spin false
+  - npm install -g bower phantomjs-prebuilt
+  - bower --version
+  - phantomjs --version
 
 install:
   - npm install
