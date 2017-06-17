@@ -11,7 +11,7 @@ describe('Unit: Component: ffg-notification', function() {
     needs: ['service:notifications']
   });
 
-  it('closes notification through notifications service', function() {
+  xit('closes notification through notifications service', function() {
     const component = this.subject();
     const notifications = {};
     const notification = { message: 'Test close', type: 'success' };
