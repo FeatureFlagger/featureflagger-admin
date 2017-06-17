@@ -5,7 +5,8 @@ import { setupModelTest } from 'ember-mocha';
 describe('Unit | Model | project', () => {
   setupModelTest('project', {
     needs: [
-      'model:feature'
+      'model:feature',
+      'model:account'
     ]
   });
 

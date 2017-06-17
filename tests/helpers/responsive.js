@@ -2,16 +2,20 @@ import Ember from 'ember';
 import MediaService from 'ember-responsive/media';
 
 const {
-  getOwner
+  getOwner,
+  String,
+  computed,
+  A,
+  Test
 } = Ember;
-const { classify } = Ember.String;
+const { classify } = String;
 
 MediaService.reopen({
   // Change this if you want a different default breakpoint in tests.
   _defaultBreakpoint: 'desktop',
 
-  _breakpointArr: Ember.computed('breakpoints', function() {
-    return Object.keys(this.get('breakpoints')) || Ember.A([]);
+  _breakpointArr: computed('breakpoints', function() {
+    return Object.keys(this.get('breakpoints')) || A([]);
   }),
 
   _forceSetBreakpoint(breakpoint) {
@@ -45,7 +49,7 @@ MediaService.reopen({
   }
 });
 
-export default Ember.Test.registerAsyncHelper('setBreakpoint', function(app, breakpoint) {
+export default Test.registerAsyncHelper('setBreakpoint', function(app, breakpoint) {
   // this should use getOwner once that's supported
   const mediaService = app.__deprecatedInstance__.lookup('service:media');
   mediaService._forceSetBreakpoint(breakpoint);
