@@ -11,7 +11,7 @@ describe('Unit: Component: ffg-notification', function() {
     needs: ['service:notifications']
   });
 
-  xit('closes notification through notifications service', function() {
+  it('closes notification through notifications service', function() {
     const component = this.subject();
     const notifications = {};
     const notification = { message: 'Test close', type: 'success' };
@@ -25,7 +25,7 @@ describe('Unit: Component: ffg-notification', function() {
     expect(notifications.closeNotification.calledWith(notification)).to.be.true;
   });
 
-  xit('closes notification when animationend event is triggered', function(done) {
+  it('closes notification when animationend event is triggered', function(done) {
     const component = this.subject();
     const notifications = {};
     const notification = { message: 'Test close', type: 'success' };

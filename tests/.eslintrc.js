@@ -1,7 +1,6 @@
 module.exports = {
   env: {
-    'embertest': true,
-    'mocha': true
+    'embertest': true
   },
   globals: {
     server: false,

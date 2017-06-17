@@ -5,7 +5,7 @@ import { A as emberA } from 'ember-array/utils';
 import EmberObject from 'ember-object';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
+import { describe, it, beforeEach } from 'mocha';
 import { setupTest } from 'ember-mocha';
 import { AjaxError, InvalidError } from 'ember-ajax/errors';
 import { ServerUnreachableError } from 'featureflagger-admin/services/ajax';
