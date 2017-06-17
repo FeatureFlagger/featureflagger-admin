@@ -1,0 +1,33 @@
+---
+language: node_js
+node_js:
+  - "6"
+
+sudo: false
+
+env:
+  - TEST_DIR=client
+
+before_install:
+  - cd $TEST_DIR
+  - npm config set spin false
+  - npm install -g bower phantomjs-prebuilt
+  - bower --version
+  - phantomjs --version
+
+
+cache:
+  directories:
+    - $HOME/.npm
+    - $HOME/.cache # includes bowers cache
+
+
+install:
+  - npm install
+  - bower install
+
+script:
+  - COVERAGE=true npm test
+
+after_success:
+  - npm run coverage
