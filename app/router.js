@@ -7,11 +7,12 @@ const FeatureFlaggerRouter = Router.extend({
 });
 
 FeatureFlaggerRouter.map(function() {
+  this.route('index', { path: '/' }, function() {});
+
   this.route('signin');
   this.route('signout');
 
   this.route('team', { path: '/team' }, function() {});
-  this.route('dashboard', { path: '/' }, function() {});
 
   this.route('projects', { path: '/projects' }, function() {});
 

@@ -5,7 +5,7 @@ import { A as emberA } from 'ember-array/utils';
 import EmberObject from 'ember-object';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
+import { describe, it, beforeEach } from 'mocha';
 import { setupTest } from 'ember-mocha';
 import { AjaxError, InvalidError } from 'ember-ajax/errors';
 import { ServerUnreachableError } from 'featureflagger-admin/services/ajax';
@@ -175,6 +175,7 @@ describe('Unit: Service: notifications', function() {
     });
 
     expect(notifications.get('alerts.length')).to.equal(2);
+
     const [alert1, alert2] = notifications.get('alerts');
     expect(alert1).to.deep.equal({ message: 'First error message', status: 'alert', type: 'error', key: 'api-error.first-error' });
     expect(alert2).to.deep.equal({ message: 'Second error message', status: 'alert', type: 'error', key: 'api-error.second-error' });
@@ -234,7 +235,7 @@ describe('Unit: Service: notifications', function() {
     expect(get(notification, 'message')).to.equal('Request was rejected because it was invalid');
     expect(get(notification, 'status')).to.equal('alert');
     expect(get(notification, 'type')).to.equal('error');
-    expect(get(notification, 'key')).to.equal('api-error.ajax-error');
+    expect(get(notification, 'key')).to.equal('api-error');
   });
 
   it('#showAPIError parses custom ember-ajax errors correctly', function() {
@@ -249,7 +250,7 @@ describe('Unit: Service: notifications', function() {
     expect(get(notification, 'message')).to.equal('Server was unreachable');
     expect(get(notification, 'status')).to.equal('alert');
     expect(get(notification, 'type')).to.equal('error');
-    expect(get(notification, 'key')).to.equal('api-error.ajax-error');
+    expect(get(notification, 'key')).to.equal('api-error');
   });
 
   it('#displayDelayed moves delayed notifications into content', function() {

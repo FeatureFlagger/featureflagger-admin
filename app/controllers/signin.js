@@ -20,11 +20,11 @@ export default Controller.extend(ValidationEngine, {
 
   authenticate: task(function* (authStrategy, authentication) {
     try {
+
       const authResult = yield this.get('session')
           .authenticate(authStrategy, ...authentication);
 
       return authResult;
-
     } catch(error) {
       if (error && error.errors) {
         // we don't get back an ember-data/ember-ajax error object
