@@ -119,7 +119,7 @@ describe('Integration: Component: ffg-task-button', function() {
         yield timeout(50);
         throw new ReferenceError('test error');
       } catch(error) {
-          // noop, prevent mocha triggering unhandled error assert
+        // noop, prevent mocha triggering unhandled error assert
       }
     }));
 

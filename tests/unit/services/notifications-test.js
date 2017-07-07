@@ -23,7 +23,7 @@ describe('Unit: Service: notifications', function() {
   it('filters alerts/notifications', function() {
     const notifications = this.subject();
 
-        // wrapped in run-loop to enure alerts/notifications CPs are updated
+    // wrapped in run-loop to enure alerts/notifications CPs are updated
     run(() => {
       notifications.showAlert('Alert');
       notifications.showNotification('Notification');
@@ -46,7 +46,7 @@ describe('Unit: Service: notifications', function() {
 
     notification = notifications.get('alerts')[0];
 
-        // alerts received from the server should be marked html safe
+    // alerts received from the server should be marked html safe
     expect(notification.get('message')).to.have.property('toHTML');
   });
 
@@ -56,7 +56,7 @@ describe('Unit: Service: notifications', function() {
     notifications.handleNotification({ message: 'Test' }, false);
 
     expect(notifications.get('content'))
-            .to.deep.include({ message: 'Test', status: 'notification' });
+      .to.deep.include({ message: 'Test', status: 'notification' });
   });
 
   it('#showAlert adds POJO alerts', function() {
@@ -67,7 +67,7 @@ describe('Unit: Service: notifications', function() {
     });
 
     expect(notifications.get('alerts'))
-            .to.deep.include({ message: 'Test Alert', status: 'alert', type: 'error', key: undefined });
+      .to.deep.include({ message: 'Test Alert', status: 'alert', type: 'error', key: undefined });
   });
 
   it('#showAlert adds delayed notifications', function() {
@@ -78,12 +78,12 @@ describe('Unit: Service: notifications', function() {
     });
 
     expect(notifications.get('delayedNotifications'))
-            .to.deep.include({ message: 'Test Alert', status: 'notification', type: 'error', key: undefined });
+      .to.deep.include({ message: 'Test Alert', status: 'notification', type: 'error', key: undefined });
   });
 
-    // in order to cater for complex keys that are suitable for i18n
-    // we split on the second period and treat the resulting base as
-    // the key for duplicate checking
+  // in order to cater for complex keys that are suitable for i18n
+  // we split on the second period and treat the resulting base as
+  // the key for duplicate checking
   it('#showAlert clears duplicates', function() {
     const notifications = this.subject();
 
@@ -110,7 +110,7 @@ describe('Unit: Service: notifications', function() {
     });
 
     expect(notifications.get('notifications'))
-            .to.deep.include({ message: 'Test Notification', status: 'notification', type: 'success', key: undefined });
+      .to.deep.include({ message: 'Test Notification', status: 'notification', type: 'success', key: undefined });
   });
 
   it('#showNotification adds delayed notifications', function() {
@@ -121,7 +121,7 @@ describe('Unit: Service: notifications', function() {
     });
 
     expect(notifications.get('delayedNotifications'))
-            .to.deep.include({ message: 'Test Notification', status: 'notification', type: undefined, key: undefined });
+      .to.deep.include({ message: 'Test Notification', status: 'notification', type: undefined, key: undefined });
   });
 
   it('#showNotification clears existing notifications', function() {
@@ -134,7 +134,7 @@ describe('Unit: Service: notifications', function() {
 
     expect(notifications.get('notifications.length')).to.equal(1);
     expect(notifications.get('notifications'))
-            .to.deep.equal([{ message: 'Second', status: 'notification', type: undefined, key: undefined }]);
+      .to.deep.equal([{ message: 'Second', status: 'notification', type: undefined, key: undefined }]);
   });
 
   it('#showNotification keeps existing notifications if doNotCloseNotifications option passed', function() {
@@ -166,8 +166,8 @@ describe('Unit: Service: notifications', function() {
   it('#showAPIError handles multiple json response errors', function() {
     const notifications = this.subject();
     const error = new AjaxError([
-            { title: 'First error', message: 'First error message' },
-            { title: 'Second error', message: 'Second error message' }
+      { title: 'First error', message: 'First error message' },
+      { title: 'Second error', message: 'Second error message' }
     ]);
 
     run(() => {
@@ -189,18 +189,16 @@ describe('Unit: Service: notifications', function() {
       notifications.showAPIError(resp);
     });
 
-    expect(notifications.get('content').toArray()).to.deep.equal([
-            { message: 'There was a problem on the server, please try again.', status: 'alert', type: 'error', key: 'api-error' }
-    ]);
+    expect(notifications.get('content').toArray()).to.deep
+      .equal([{ message: 'There was a problem on the server, please try again.', status: 'alert', type: 'error', key: 'api-error' }]);
 
     notifications.set('content', emberA());
 
     run(() => {
       notifications.showAPIError(resp, { defaultErrorText: 'Overridden default' });
     });
-    expect(notifications.get('content').toArray()).to.deep.equal([
-            { message: 'Overridden default', status: 'alert', type: 'error', key: 'api-error' }
-    ]);
+    expect(notifications.get('content').toArray()).to.deep
+      .equal([{ message: 'Overridden default', status: 'alert', type: 'error', key: 'api-error' }]);
   });
 
   it('#showAPIError sets correct key when passed a base key', function() {
@@ -263,11 +261,12 @@ describe('Unit: Service: notifications', function() {
       notifications.displayDelayed();
     });
 
-    expect(notifications.get('notifications')).to.deep.equal([
-            { message: 'Third', status: 'notification', type: undefined, key: undefined },
-            { message: 'First', status: 'notification', type: undefined, key: undefined },
-            { message: 'Second', status: 'notification', type: undefined, key: undefined }
-    ]);
+    expect(notifications.get('notifications')).to.deep
+      .equal([
+        { message: 'Third', status: 'notification', type: undefined, key: undefined },
+        { message: 'First', status: 'notification', type: undefined, key: undefined },
+        { message: 'Second', status: 'notification', type: undefined, key: undefined }
+      ]);
   });
 
   it('#closeNotification removes POJO notifications', function() {
@@ -278,15 +277,13 @@ describe('Unit: Service: notifications', function() {
       notifications.handleNotification(notification);
     });
 
-    expect(notifications.get('notifications'))
-            .to.include(notification);
+    expect(notifications.get('notifications')).to.include(notification);
 
     run(() => {
       notifications.closeNotification(notification);
     });
 
-    expect(notifications.get('notifications'))
-            .to.not.include(notification);
+    expect(notifications.get('notifications')).to.not.include(notification);
   });
 
   it('#closeNotification removes and deletes DS.Notification records', function() {
@@ -346,9 +343,9 @@ describe('Unit: Service: notifications', function() {
 
     run(() => {
       notifications.showAlert('First alert');
-            // using handleNotification as showNotification will auto-prune
-            // duplicates and keys will be removed if doNotCloseNotifications
-            // is true
+      // using handleNotification as showNotification will auto-prune
+      // duplicates and keys will be removed if doNotCloseNotifications
+      // is true
       notifications.handleNotification({ message: 'First notification', key: 'test.close', status: 'notification' });
       notifications.handleNotification({ message: 'Second notification', key: 'test.keep', status: 'notification' });
       notifications.handleNotification({ message: 'Third notification', key: 'test.close', status: 'notification' });

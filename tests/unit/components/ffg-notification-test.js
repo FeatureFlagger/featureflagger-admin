@@ -7,7 +7,7 @@ import sinon from 'sinon';
 describe('Unit: Component: ffg-notification', function() {
   setupComponentTest('ffg-notification', {
     unit: true,
-        // specify the other units that are required for this test
+    // specify the other units that are required for this test
     needs: ['service:notifications']
   });
 

@@ -5,14 +5,14 @@ import { setupModelTest } from 'ember-mocha';
 
 describe('Unit: Serializer: user', function() {
   setupModelTest('user', {
-        // Specify the other units that are required for this test.
+    // Specify the other units that are required for this test.
     needs: [
       'model:role',
       'transform:moment-utc'
     ]
   });
 
-    // Replace this with your real tests.
+  // Replace this with your real tests.
   it('serializes records', function() {
     const record = this.subject();
 

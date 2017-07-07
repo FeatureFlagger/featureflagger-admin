@@ -7,8 +7,8 @@ import injectService from 'ember-service/inject';
 import { isBlank } from 'ember-utils';
 import { dasherize } from 'ember-string';
 import {
-    isMaintenanceError,
-    isVersionMismatchError
+  isMaintenanceError,
+  isVersionMismatchError
 } from 'featureflagger-admin/services/ajax';
 
 // Notification keys take the form of "noun.verb.message", eg:
@@ -75,7 +75,7 @@ export default Service.extend({
     if (!options.doNotCloseNotifications) {
       this.closeNotifications();
     } else {
-        // TODO: this should be removed along with showErrors
+      // TODO: this should be removed along with showErrors
       options.key = undefined;
     }
 

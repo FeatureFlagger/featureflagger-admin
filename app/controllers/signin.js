@@ -22,7 +22,7 @@ export default Controller.extend(ValidationEngine, {
     try {
 
       const authResult = yield this.get('session')
-          .authenticate(authStrategy, ...authentication);
+        .authenticate(authStrategy, ...authentication);
 
       return authResult;
     } catch(error) {
@@ -62,7 +62,7 @@ export default Controller.extend(ValidationEngine, {
     try {
       yield this.validate({ property: 'signin' });
       return yield this.get('authenticate')
-          .perform(authStrategy, [model.get('identification'), model.get('password')]);
+        .perform(authStrategy, [model.get('identification'), model.get('password')]);
 
     } catch(error) {
       this.set('flowErrors', 'Please fill out the form to sign in.');

@@ -20,8 +20,8 @@ describe('Integration: Component: ffg-notifications', function() {
     this.inject.service('notifications', { as: 'notifications' });
 
     this.set('notifications.notifications', [
-            { message: 'First', type: 'error' },
-            { message: 'Second', type: 'warn' }
+      { message: 'First', type: 'error' },
+      { message: 'Second', type: 'warn' }
     ]);
   });
 
