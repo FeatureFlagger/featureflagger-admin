@@ -1,8 +1,8 @@
 import {
-    describe,
-    it,
-    beforeEach,
-    afterEach
+  describe,
+  it,
+  beforeEach,
+  afterEach
 } from 'mocha';
 import { expect } from 'chai';
 import testSelector from 'ember-test-selectors';
@@ -48,8 +48,8 @@ describe('Acceptance: Project', () => {
       expect(currentURL(), 'currentURL').to.equal('/projects');
 
       expect(
-          find(`${testSelector('projects-list')} ${testSelector('project-item')}`).length,
-          'number of active projects'
+        find(`${testSelector('projects-list')} ${testSelector('project-item')}`).length,
+        'number of active projects'
       ).to.equal(3);
     });
   });

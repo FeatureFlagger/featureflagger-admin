@@ -1,9 +1,9 @@
 /* jshint expr:true */
 import {
-    describe,
-    it,
-    beforeEach,
-    afterEach
+  describe,
+  it,
+  beforeEach,
+  afterEach
 } from 'mocha';
 import $ from 'jquery';
 import { expect } from 'chai';
@@ -41,9 +41,9 @@ describe('Acceptance: Signin', function() {
       server.post('/token', function(schema, { requestBody }) {
         /* eslint-disable camelcase */
         const {
-            grant_type: grantType,
-            username,
-            password
+          grant_type: grantType,
+          username,
+          password
         } = $.deparam(requestBody);
 
         expect(grantType, 'grant type').to.equal('password');
@@ -64,7 +64,7 @@ describe('Acceptance: Signin', function() {
             }]
           });
         }
-          /* eslint-enable camelcase */
+        /* eslint-enable camelcase */
       });
     });
 
@@ -77,19 +77,19 @@ describe('Acceptance: Signin', function() {
         expect(currentURL(), 'signin url').to.equal('/signin');
 
         expect(find('input[name="identification"]').length, 'email input field')
-            .to.equal(1);
+          .to.equal(1);
         expect(find('input[name="password"]').length, 'password input field')
-            .to.equal(1);
+          .to.equal(1);
       });
 
       click('.ffg-btn-blue');
 
       andThen(() => {
         expect(find('.form-group.error').length, 'number of invalid fields')
-            .to.equal(2);
+          .to.equal(2);
 
         expect(find('.main-error').length, 'main error is displayed')
-            .to.equal(1);
+          .to.equal(1);
       });
 
       fillIn('[name="identification"]', 'test@example.com');
@@ -100,7 +100,7 @@ describe('Acceptance: Signin', function() {
         expect(currentURL(), 'current url').to.equal('/signin');
 
         expect(find('.main-error').length, 'main error is displayed')
-            .to.equal(1);
+          .to.equal(1);
 
         /* Error When it running tests on browser
         expect(find('.main-error').text().trim(), 'main error text')

@@ -116,24 +116,13 @@ const ajaxService = AjaxService.extend({
   session: injectService(),
 
   headers: computed('session.isAuthenticated', function() {
-  //  const session = this.get('session');
+    // const session = this.get('session');
     const headers = {};
-
-/*
-    headers['X-Ghost-Version'] = config.APP.version;
-
-    if (session.get('isAuthenticated')) {
-      session.authorize('authorizer:oauth2', (headerName, headerValue) => {
-        headers[headerName] = headerValue;
-      });
-    }
-    */
-
     return headers;
   }).volatile(),
 
-    // ember-ajax recognises `application/vnd.api+json` as a JSON-API request
-    // and formats appropriately, we want to handle `application/json` the same
+  // ember-ajax recognises `application/vnd.api+json` as a JSON-API request
+  // and formats appropriately, we want to handle `application/json` the same
   _makeRequest(hash) {
     const isAuthenticated = this.get('session.isAuthenticated');
     const isGhostRequest = hash.url.indexOf('/ghost/api/') !== -1;
@@ -147,20 +136,20 @@ const ajaxService = AjaxService.extend({
       }
     }
 
-        // we can get into a situation where the app is left open without a
-        // network connection and the token subsequently expires, this will
-        // result in the next network request returning a 401 and killing the
-        // session. This is an attempt to detect that and restore the session
-        // using the stored refresh token before continuing with the request
-        //
-        // TODO:
-        // - this might be quite blunt, if we have a lot of requests at once
-        //   we probably want to queue the requests until the restore completes
-        // BUG:
-        // - the original caller gets a rejected promise with `undefined` instead
-        //   of the AjaxError object when session restore fails. This isn't a
-        //   huge deal because the session will be invalidated and app reloaded
-        //   but it would be nice to be consistent
+    // we can get into a situation where the app is left open without a
+    // network connection and the token subsequently expires, this will
+    // result in the next network request returning a 401 and killing the
+    // session. This is an attempt to detect that and restore the session
+    // using the stored refresh token before continuing with the request
+    //
+    // TODO:
+    // - this might be quite blunt, if we have a lot of requests at once
+    //   we probably want to queue the requests until the restore completes
+    // BUG:
+    // - the original caller gets a rejected promise with `undefined` instead
+    //   of the AjaxError object when session restore fails. This isn't a
+    //   huge deal because the session will be invalidated and app reloaded
+    //   but it would be nice to be consistent
     if (isAuthenticated && isGhostRequest && !isTokenRequest && isTokenExpired) {
       return this.get('session').restore().then(() => {
         return this._makeRequest(hash);
@@ -185,8 +174,8 @@ const ajaxService = AjaxService.extend({
       return new ThemeValidationError(payload.errors);
     }
 
-        // TODO: we may want to check that we are hitting our own API before
-        // logging the user out due to a 401 response
+    // TODO: we may want to check that we are hitting our own API before
+    // logging the user out due to a 401 response
     if (this.isUnauthorizedError(status, headers, payload) && this.get('session.isAuthenticated')) {
       this.get('session').invalidate();
     }

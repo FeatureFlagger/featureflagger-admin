@@ -8,16 +8,16 @@ export default Service.extend({
 
   maintenanceAlert() {
     this.get('notifications').showAlert(
-            'Sorry, FeatureFlagger is currently undergoing maintenance, please wait a moment then try again.',
-            { type: 'error', key: 'api-error.under-maintenance' }
-        );
+      'Sorry, FeatureFlagger is currently undergoing maintenance, please wait a moment then try again.',
+      { type: 'error', key: 'api-error.under-maintenance' }
+    );
   },
 
   requireUpgrade() {
     this.set('isRequired', true);
     this.get('notifications').showAlert(
-            'FeatureFlagger has been upgraded, please copy any unsaved data and refresh the page to continue.',
-            { type: 'error', key: 'api-error.upgrade-required' }
-        );
+      'FeatureFlagger has been upgraded, please copy any unsaved data and refresh the page to continue.',
+      { type: 'error', key: 'api-error.upgrade-required' }
+    );
   }
 });

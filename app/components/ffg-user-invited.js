@@ -39,13 +39,13 @@ export default Component.extend({
       invite.resend().then((result) => {
         const notificationText = `Invitation resent! (${invite.get('email')})`;
 
-                // the server deletes the old record and creates a new one when
-                // resending so we need to update the store accordingly
+        // the server deletes the old record and creates a new one when
+        // resending so we need to update the store accordingly
         invite.unloadRecord();
         this.get('store').pushPayload('invite', result);
 
-                // If sending the invitation email fails, the API will still return a status of 201
-                // but the invite's status in the response object will be 'invited-pending'.
+        // If sending the invitation email fails, the API will still return a status of 201
+        // but the invite's status in the response object will be 'invited-pending'.
         if (result.invites[0].status === 'invited-pending') {
           notifications.showAlert('Invitation email was not sent.  Please try resending.', { type: 'error', key: 'invite.resend.not-sent' });
         } else {
@@ -63,7 +63,7 @@ export default Component.extend({
       const email = invite.get('email');
       const notifications = this.get('notifications');
 
-            // reload the invite to get the most up-to-date information
+      // reload the invite to get the most up-to-date information
       invite.reload().then(() => {
         invite.destroyRecord().then(() => {
           const notificationText = `Invitation revoked. (${email})`;
@@ -73,7 +73,7 @@ export default Component.extend({
         });
       }).catch((error) => {
         if (isNotFoundError(error)) {
-                    // if the invite no longer exists, then show a warning and reload the route
+          // if the invite no longer exists, then show a warning and reload the route
           this.sendAction('reload');
           notifications.showAlert('This invite has been revoked or a user has already accepted the invitation.', { type: 'error', delayed: true, key: 'invite.revoke.already-accepted' });
         } else {
