@@ -51,7 +51,7 @@
     "ember-invoke-action": "^1.4.0",
     "ember-light-table": "^1.8.4",
     "ember-load-initializers": "^1.0.0",
-    "ember-one-way-controls": "^2.0.0",
+    "ember-one-way-controls": "^3.0.0",
     "ember-resolver": "^4.1.0",
     "ember-responsive": "^2.0.2",
     "ember-simple-auth": "^1.2.1",
