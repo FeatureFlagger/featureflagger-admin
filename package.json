@@ -66,7 +66,7 @@
     "loader.js": "^4.2.3",
     "lorem-ipsum": "^1.0.3",
     "matchdep": "2.0.0",
-    "moment": "2.18.1",
+    "moment": "2.20.1",
     "moment-timezone": "0.5.13",
     "postcss-color-function": "^4.0.0",
     "postcss-custom-properties": "^6.0.1",
