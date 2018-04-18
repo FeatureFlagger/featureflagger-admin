@@ -67,7 +67,7 @@
     "lorem-ipsum": "^1.0.3",
     "matchdep": "2.0.0",
     "moment": "2.18.1",
-    "moment-timezone": "0.5.13",
+    "moment-timezone": "0.5.16",
     "postcss-color-function": "^4.0.0",
     "postcss-custom-properties": "^6.0.1",
     "postcss-easy-import": "^2.0.0"
