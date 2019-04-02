@@ -69,7 +69,7 @@
     "moment": "2.18.1",
     "moment-timezone": "0.5.13",
     "postcss-color-function": "^4.0.0",
-    "postcss-custom-properties": "^6.0.1",
+    "postcss-custom-properties": "^8.0.10",
     "postcss-easy-import": "^2.0.0"
   }
 }
