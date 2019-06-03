@@ -21,7 +21,7 @@
     "coverage": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.1",
+    "autoprefixer": "^9.6.0",
     "broccoli-asset-rev": "^2.4.5",
     "chai-jquery": "2.0.0",
     "cors": "^2.8.3",
